@@ -1,0 +1,9 @@
+<h2>Регистрация</h2>
+<form >
+        <input type="text" [(ngModel)]="name" name="name" placeholder="Введите имя" class = "form-control"/><br>
+        <input type="text" [(ngModel)]="login" name="login" placeholder="Введите логин " class = "form-control"/><br>
+        <input type="email" [(ngModel)]="email" name="email" placeholder="Введите email" class = "form-control"/><br>
+        <input type="password" [(ngModel)]="password" name="password" placeholder="Введите пароль" class = "form-control"/><br>
+        <button  class="btn btn-primary" (click)="userRegisterClick()"style="background-color: #9f0cc4;" routerLink="createPost" >Войти</button>
+        <button  class="btn btn-primary" (click)="GoogleCheckIn()"style="background-color: #9f0cc4;" *ngIf="!name" routerLink="createPost">Войти через Google</button>
+</form>

@@ -1,0 +1,21 @@
+<h2>Chat</h2>
+<div class="chat">
+  <button  class="btn btn-secondary" (click)="login()"    style="background-color: #9f0cc4;" *ngIf="!auth" >Login With Google</button>
+<div *ngIf="auth" >
+  <div class="col-md-3" *ngFor="let item of items | async">
+      <p class="badge badge-secondary" style="background-color: blueviolet;">{{user}}</p>
+      <textarea readonly >{{item.content}}</textarea>
+  </div>
+<div class="container-fluid">
+  <div style="width: 300px;">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input type="text" class="form-control"
+          placeholder="Enter message" id="item"
+          required [(ngModel)]="itemValue" name="item">
+      </div>
+    </form> 
+  </div>
+</div>
+</div>
+</div>

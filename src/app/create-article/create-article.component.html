@@ -1,0 +1,33 @@
+
+<h3>Создать статью</h3>
+<div [hidden]="submitted" style="width: 300px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="title">Заголовок</label>
+      <input type="text" class="form-control" id="title" required [(ngModel)]="article.title" name="title">
+    </div>
+ 
+    <div class="form-group">
+      <label for="category">Категория</label>
+      <input type="text" class="form-control" id="category" required [(ngModel)]="article.category" name="category">
+    </div>
+
+    <div class="form-group">
+        <label for=" title">Изображение</label>
+        <input type="text" class="form-control" id="image" required [(ngModel)]="article.image" name="image">
+      </div>
+
+      <div class="form-group">
+        <label for="content">Содержание</label>
+        <textarea type="text" class="form-control" id="content" required [(ngModel)]="article.content" name="content">
+        </textarea>
+      </div>
+ 
+    <button type="submit" class="btn btn-success">Отправить</button>
+  </form>
+</div>
+ 
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <button class="btn btn-success" (click)="newCustomer()">Добавить статью</button>
+</div>
