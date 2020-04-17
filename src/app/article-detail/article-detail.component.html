@@ -1,19 +1,14 @@
-<div *ngIf="article">
+<div *ngIf="article" id ='article'>
     <div>
-    <h2>{{article.title}}</h2>
+    <h2>{{article.title}}</h2><img src="assets/grape.PNG">
     </div>
     <div>
-        <span class  class="badge badge-secondary" style="background-color: blueviolet;">
-            <h3>{{ article.category}}</h3>
+        <span class="badge badge-secondary" style="background-color: blueviolet;">
+            <h3>{{article.category}}</h3>
             </span>
     </div>
-    <div>
-        <img src=''>{{image}}
-     </div>
      <div>
-        <h3>{{article.content}}</h3>
+       {{article.content}}
      </div>
-    <span class="button is-small btn-danger" (click)='deleteCustomer()'>Delete</span>
-   
     <hr />
   </div>

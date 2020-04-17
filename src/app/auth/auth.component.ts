@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, VERSION } from '@angular/core';
 import { AuthService } from "../auth.service";
 import { CheckFormService } from '../check-form-service.service';
+import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
@@ -8,7 +10,11 @@ import { CheckFormService } from '../check-form-service.service';
 })
 export class AuthComponent implements OnInit {
   register = false;
-  constructor(public auth : AuthService, public checkForm: CheckFormService) { }
+  public version = VERSION.full;
+  public reactiveForm: FormGroup = new FormGroup({
+      recaptchaReactive: new FormControl(null, Validators.required)
+  });
+  constructor(public auth : AuthService, public checkForm: CheckFormService,public router: Router) { }
   name:string;
   login:string;
   email:string;
@@ -23,35 +29,48 @@ export class AuthComponent implements OnInit {
         password:this.password
     };
     if (!this.checkForm.checkName(user.name)){
-     console.warn('Имя не введено');
+     alert('Имя не введено');
+      this.router.navigate(['reg']);
       return false;
       }
     else if (!this.checkForm.checkName(user.login)){
-      console.warn('Логин не введен');
+      alert('Логин не введен');
+      this.router.navigate(['reg']);
         return false;
       }
     else if (!this.checkForm.checkName(user.email)){
-      console.warn('Email не введен');
+      alert('Email не введен');
+      this.router.navigate(['reg']);
         return false;
       }
     else if (!this.checkForm.checkName(user.password)){
-      console.warn('Пароль не введен');
+      alert('Пароль не введен');
+      this.router.navigate(['reg']);
         return false;
       }
       else  if (!this.checkForm.passwordLength(user.password)){
-        console.warn("Пароль слишком короткий");
+        alert("Пароль слишком короткий");
+        this.router.navigate(['reg']);
        return false;
        }
     else  if (!this.checkForm.nameLength(user.name)){
-      console.warn("Имя слишком короткое");
+      alert("Имя слишком короткое");
+       this.router.navigate(['reg']);
        return false;
        }
     else  if (!this.checkForm.loginLength(user.login)){
-      console.warn("Логин слишком короткий");
+      alert("Логин слишком короткий");
+      this.router.navigate(['reg']);
        return false;
        }
+     else  if (!this.checkForm.emailValid(user.email)){
+        alert(" Email неверный");
+        this.router.navigate(['reg']);
+         return false;
+         }
     else  if (!this.checkForm.emailLength(user.email)){
-      console.warn(" Email слишком короткий");
+      alert(" Email слишком короткий");
+      this.router.navigate(['reg']);
        return false;
        }
     this.auth.registerUser(user);

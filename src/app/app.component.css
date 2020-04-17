@@ -2,7 +2,66 @@
     color: #9f0cc4;
 }
 img {
-    display: block;
     width:auto;
     height:auto;
+}
+#pic {
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav {
+    border-radius: 10px;
+}
+
+ul {
+  color: #9f0cc4;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+li {
+    color: #fff;
+    background-color: #9f0cc4;
+    float: left;
+    padding: 1rem;
+    position: relative;
+    text-decoration: none;
+    transition-duration: 0.2s;
+    
+}
+  
+li a {
+  color: #fff;
+}
+
+li:hover {
+    background: #7b1794;
+    cursor: pointer;
+}
+
+ul li ul {
+    background: #9f0cc4;
+    visibility: hidden;
+  opacity: 0;
+  min-width: 5rem;
+    position: absolute;
+  margin-top: 1rem;
+    left: 0;
+  display: none;
+}
+
+ul li:hover > ul,
+ul li ul:hover {
+  visibility: visible;
+  opacity: 1;
+}
+
+ul li ul li {
+    clear: both;
+  width: 100%;
 }

@@ -12,7 +12,7 @@ export class ArticleService {
   articlesRef: AngularFirestoreCollection<Article> = null;
  
   constructor(private db: AngularFirestore) {
-    this.articlesRef = db.collection(this.dbPath);
+    this.articlesRef = this.db.collection(this.dbPath);
   }
  
   createCustomer(article: Article): void {

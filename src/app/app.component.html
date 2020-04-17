@@ -1,7 +1,11 @@
-<figure><img src="../assets/222.png"></figure>
-<div class="shadow p-3 mb-5 bg-white rounded">
-            <a class="nav-link"  id="grape" routerLink="">Home<span class="sr-only">(current)</span></a>
-            <a class="nav-link" id="grape" routerLink="/chat">Chat</a>
-            <a class="nav-link" id="grape" routerLink="/about">About</a>
+<figure><img src="../assets/222.png" routerLink="" id="pic"></figure>
+<div  id="top">
+            <ul>
+              <li><a routerLink="">Home<span class="sr-only">(current)</span></a></li>
+              <li><a routerLink="/chat">Chat</a></li>
+              <li><a routerLink="/about">About</a></li>
+            </ul>
+             <router-outlet></router-outlet>
 </div> 
-<router-outlet></router-outlet>
+
+

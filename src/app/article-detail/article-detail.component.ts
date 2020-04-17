@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ArticleService } from '../article-service.service';
 import { Article } from '../home/article';
+
 @Component({
   selector: 'app-article-detail',
   templateUrl: './article-detail.component.html',
@@ -8,14 +9,16 @@ import { Article } from '../home/article';
 })
 export class ArticleDetailComponent implements OnInit {
   @Input() article: Article;
-  constructor(private articleService: ArticleService) { }
-
+  constructor(private articleService: ArticleService ) {
+   }
+    
   ngOnInit() {
   }
   updateActive(isActive: boolean) {
     this.articleService
       .updateCustomer(this.article.key, { active: isActive })
       .catch(err => console.log(err));
+
   }
  
   deleteCustomer() {
@@ -23,4 +26,5 @@ export class ArticleDetailComponent implements OnInit {
       .deleteCustomer(this.article.key)
       .catch(err => console.log(err));
   }
+
 }

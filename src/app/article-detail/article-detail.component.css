@@ -1,0 +1,11 @@
+#ca{
+    display: flex;
+    padding-left: 15%;
+}
+#article{
+    width: 500px;
+    position: relative;
+}
+hr{
+    widows: 100px;
+}

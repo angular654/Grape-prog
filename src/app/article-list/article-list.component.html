@@ -1,7 +1,17 @@
-
-<div *ngFor="let article of articles" >
-  <app-article-detail [article]='article'></app-article-detail>
+<div id="emSender">
+  <h2>  Grapeprog-blog</h2>
+    <button class="btn btn-secondary"  style="background-color: #9f0cc4;" routerLink="reg" id="grape">Login</button>
+  <h2>Наша рассылка</h2>
+  <h5>Оповещение о выжных и интересных статьях</h5>
+  <button class="btn btn-secondary"  style="background-color: #9f0cc4;" routerLink="sender" >Подписаться</button>
+  <h2>Полезные ссылки</h2>
+  <a href="https://pedsovet.org/beta/article/issledovanie-privlekat-k-it-specialnostam-nuzno-uze-so-skoly-inace-nastupit-kadrovyj-golod"><img src="assets/Source1.PNG" width="200" 
+      height="100" ></a><br>
+  <a href="https://nodejs.org/en/about/"><img src="https://nodejs.org/static/images/logo.svg" width="200" 
+       height="100" ></a><br>
+  <a href="https://gendalf.ru/news/releases/gendalf-i-firma-1s-obuchayt-shkolnikov-programmirovaniyu/"><img src="https://www.gendalf.ru/upload/medialibrary/c92/%D0%BF%D0%B2.png" width="200" 
+          height="200" ></a>  
 </div>
-<div style="margin-top:20px;">
-  <button type="button" class="button btn-danger" (click)='deleteCustomers()'>Delete All</button>
+<div *ngFor="let article of articles">
+  <app-article-detail [article]='article' id="articleList" ></app-article-detail>
 </div>

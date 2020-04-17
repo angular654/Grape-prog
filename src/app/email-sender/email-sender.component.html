@@ -1,0 +1,21 @@
+
+<div class="Sender">
+<form class="form-group"
+  action="https://formspree.io/xjvorwde"
+  method ="POST"
+  #declarativeForm="ngForm"
+>
+<div><label>
+  <h1 style="color : rgb(105, 27, 105);">Наша рассылка</h1>
+    Your email:
+    <input type="email" [(ngModel)]="email" name="email" class="form-control">
+  </label></div>
+  <div><label><br>
+    Your message:
+    <textarea name="message"class="form-control" readonly>Вы подписались на рассылку</textarea> 
+  </label></div>
+  <!-- your other form fields go here -->
+
+  <button type="submit" (click)="Check()">Send</button>
+</form>
+</div>
