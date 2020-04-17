@@ -1,0 +1,46 @@
+
+<div id="emSender">
+  <h2>Наша рассылка</h2>
+  <h5>Оповещение о выжных и интересных статьях</h5>
+  <button class="btn btn-secondary"  style="background-color: #9f0cc4;"  routerLink="sender">Подписаться</button>
+  <h2>Полезные ссылки</h2>
+  <a href="https://pedsovet.org/beta/article/issledovanie-privlekat-k-it-specialnostam-nuzno-uze-so-skoly-inace-nastupit-kadrovyj-golod"><img src="assets/Source1.PNG" width="200" 
+      height="100" ></a><br>
+  <a href="https://nodejs.org/en/about/"><img src="https://nodejs.org/static/images/logo.svg" width="200" 
+       height="100" ></a><br>
+  <a href="https://gendalf.ru/news/releases/gendalf-i-firma-1s-obuchayt-shkolnikov-programmirovaniyu/"><img src="https://www.gendalf.ru/upload/medialibrary/c92/%D0%BF%D0%B2.png" width="200" 
+          height="200" ></a>  
+</div>
+<div id="chat"  cdkDrag >
+  <div style="width: 300px;" *ngIf="!auth">
+    <h2 style="text-align: center;">🍇🍇Chat🍇🍇</h2>
+    <button  (click)="login()"style="background-color: #9f0cc4;color:white" >Login with Google</button>
+  </div>
+<div *ngIf="auth" >
+  <h2> Grapeprog Chat🍇</h2>
+  <div  id="chatfield"  ngx-auto-scroll>
+  <div class="col-md-3" *ngFor="let item of items | async"  class="example-box"  >
+    <p  class="badge badge-secondary" style="background-color: blueviolet;" id="chatUsers" >{{item.content.split('$')[0]}}
+    </p>
+    <textarea readonly id="content">{{item.content.split('$')[1]}}</textarea>
+  </div>
+ 
+</div>
+
+<div class="container-fluid">
+
+  <div style="width: 300px;">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input type="text" class="form-control"
+          placeholder="Enter message" id="item"
+          required [(ngModel)]="itemValue" name="item">
+      </div>
+    </form> 
+  </div>
+</div>
+</div>
+</div>
+
+
+
