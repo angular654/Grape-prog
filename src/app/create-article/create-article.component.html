@@ -32,7 +32,7 @@
   <h4>Опубликованные статьи</h4>
   <button  class="btn btn-success" (click)="createArticle()">Создать статью</button>
   <hr>
-  <div class="col-md-3" *ngFor="let article of articleContent | async">
+  <div  class="container-fluid" *ngFor="let article of articleContent | async">
     <div class="arts">
       <h1 id='tt'>
         {{article.content.split('🍇')[0]}}
@@ -41,6 +41,7 @@
     <img src="assets/grape.PNG">
     <div id='cont'>{{article.content.split('🍇')[2]}}</div>
     <b>Дата публикации : {{article.content.split('🍇')[3]}}</b>
+    <hr>
   </div>
   <br>
   </div>
