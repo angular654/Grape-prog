@@ -11,10 +11,13 @@
   <a href="https://gendalf.ru/news/releases/gendalf-i-firma-1s-obuchayt-shkolnikov-programmirovaniyu/"><img src="https://www.gendalf.ru/upload/medialibrary/c92/%D0%BF%D0%B2.png" width="200" 
           height="200" ></a>  
 </div>
-<div id="chat"  cdkDrag >
+<div id="chat">
   <div style="width: 300px;" *ngIf="!auth">
     <h2 style="text-align: center;">🍇🍇Chat🍇🍇</h2>
     <button  (click)="login()"style="background-color: #9f0cc4;color:white" >Login with Google</button>
+    <re-captcha
+    (resolved)="resolved($event)"
+  ></re-captcha>
   </div>
 <div *ngIf="auth" >
   <h2> Grapeprog Chat🍇</h2>

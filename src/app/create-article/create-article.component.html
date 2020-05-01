@@ -20,7 +20,7 @@
       <div class="form-group">
         <label for="content" maxlength="500">Содержание</label>
         <textarea type="text" class="form-control" id="content" required [(ngModel)]="article.content" name="content"></textarea>
-     
+        <re-captcha></re-captcha>
       </div>
  
     <button type="submit" class="btn btn-success">Отправить</button>

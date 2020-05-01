@@ -39,4 +39,12 @@ export class ChatComponent implements OnInit {
     }
 
   }
+  public resolved(captchaResponse: string) {
+   try {
+    console.log(`Resolved captcha with response: ${captchaResponse}`); 
+   } catch (error) {
+     alert(error);
+     return false;
+   }
+  }
 }

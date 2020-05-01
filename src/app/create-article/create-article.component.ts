@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Article } from '../home/article';
 import * as moment from 'moment';
-
 @Component({
   selector: 'app-create-article',
   templateUrl: './create-article.component.html',
@@ -14,7 +13,6 @@ export class CreateArticleComponent implements OnInit {
   articleContent : Observable<any[]>;
   submitted : boolean = false;
   msgdate: any;
-  // Сделать дату публикации статьи
 
   constructor( private db: AngularFireDatabase) {
     this.articleContent = db.list('artContent').valueChanges();
@@ -36,6 +34,7 @@ export class CreateArticleComponent implements OnInit {
       this.msgdate = moment().format('LLL'); 
       this.db.list('artContent').push({ content: this.article.title + '🍇' + this.article.category + '🍇' + this.article.content + '🍇' + this.msgdate});
       alert('Статья опубликована');
+      console.log('%c You create article🍇', 'font-size: 36px; font-weight: bold');
     }
   }
 }

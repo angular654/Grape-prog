@@ -80,7 +80,7 @@ const firebaseConfig = {
   providers: [AuthService,{ provide: FirestoreSettingsToken, useValue: {} },CheckFormService,AuthComponent,{
     provide: RECAPTCHA_SETTINGS,
     useValue: {
-      siteKey: '6LeeFuMUAAAAAI_sVWaxfPrteD23gDwXlxYC86kk',
+      siteKey: '6LfKSewUAAAAAHMBK4RekHHohgt0OPZycXxHJ_i9',
     } as RecaptchaSettings,
   }],
   bootstrap: [AppComponent]
