@@ -22,8 +22,6 @@ import { HomeComponent } from './home/home.component';
 import { ChatComponent } from './chat/chat.component';
 import { CreateArticleComponent } from './create-article/create-article.component';
 import { AuthComponent } from './auth/auth.component';
-import { ArticleDetailComponent } from './article-detail/article-detail.component';
-import { ArticleListComponent } from './article-list/article-list.component';
 import { EmailSenderComponent } from './email-sender/email-sender.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DragDropModule} from '@angular/cdk/drag-drop';
@@ -55,8 +53,6 @@ const firebaseConfig = {
     ChatComponent,
     CreateArticleComponent,
     AuthComponent,
-    ArticleDetailComponent,
-    ArticleListComponent,
     EmailSenderComponent
   ],
   imports: [

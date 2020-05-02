@@ -29,22 +29,19 @@ export class ChatComponent implements OnInit {
     }, 2000);
   }
   login (){
-    if(confirm("Вы вошли в чат!"+this.msgdate)){
-      this.af.doGoogleLogin();
-      this.user = this.af.getUser();
-      this.auth = true;
+    if (grecaptcha.getResponse() == ""){
+      return false;
     } 
-    else {
-      this.auth = false;
-    }
+      else {
+          if(confirm("Вы вошли в чат!"+this.msgdate)){
+            this.af.doGoogleLogin();
+            this.user = this.af.getUser();
+            this.auth = true;
+          } 
+      else {
+        this.auth = false;
+      }
 
-  }
-  public resolved(captchaResponse: string) {
-   try {
-    console.log(`Resolved captcha with response: ${captchaResponse}`); 
-   } catch (error) {
-     alert(error);
-     return false;
-   }
+    } 
   }
 }

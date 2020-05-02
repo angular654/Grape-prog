@@ -28,13 +28,21 @@ export class CreateArticleComponent implements OnInit {
     console.clear();
   }
   onSubmit() {
-    if (this.article.title==undefined||this.article.category==undefined||this.article.content==undefined){
-      alert('Некоректные данные');
-    } else {
-      this.msgdate = moment().format('LLL'); 
-      this.db.list('artContent').push({ content: this.article.title + '🍇' + this.article.category + '🍇' + this.article.content + '🍇' + this.msgdate});
-      alert('Статья опубликована');
-      console.log('%c You create article🍇', 'font-size: 36px; font-weight: bold');
+    if (grecaptcha.getResponse()==""){
+      return false; 
+    }
+    else {
+      if (this.article.title==undefined||this.article.category==undefined||this.article.content==undefined){
+        alert('Некорректные данные');
+        return false;
+      } else {
+        this.msgdate = moment().format('LLL'); 
+        this.db.list('artContent').push({ content: this.article.title + '🍇' + this.article.category + '🍇' + this.article.content + '🍇' + this.msgdate});
+        alert('Статья опубликована');
+        this.article.title = this.article.category = this.article.content = undefined;
+        console.log('%c You create article🍇', 'font-size: 36px; font-weight: bold');
+        return true;
+      }
     }
   }
 }
