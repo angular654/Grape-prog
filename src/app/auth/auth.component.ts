@@ -73,8 +73,10 @@ export class AuthComponent implements OnInit {
       this.router.navigate(['reg']);
        return false;
        }
+        
     this.auth.registerUser(user);
     this.register = true;
+    this.router.navigate(['']);
   }
   GoogleCheckIn(){
      this.auth.doGoogleLogin();

@@ -21,7 +21,8 @@ export class ChatComponent implements OnInit {
   constructor(private db : AngularFireDatabase, private af : AuthService){
     this.items = db.list('items').valueChanges();
   }
-  ngOnInit() { }
+  ngOnInit() {
+   }
   onSubmit() {
     setTimeout(()=>{
       this.db.list('items').push({ content: this.user + '$' + this.itemValue});
