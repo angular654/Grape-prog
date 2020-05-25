@@ -12,6 +12,14 @@
     width: 160px;
     text-align: center;
 }
+#ref{
+    color:white;
+    font-size: large;
+    background-color: rgb(87, 33, 138);
+    border-radius: 7px;
+    width: 160px;
+    text-align: center;
+}
 #cont{
     font-size: medium;
     color: rgb(41, 17, 63);
@@ -25,4 +33,12 @@
     width:auto;
     height:auto;
     image-orientation: initial;
+}
+a {
+    color: rgb(146, 51, 235); 
+    font-size: medium;
+    text-decoration: none;
+}
+a:hover{
+    color: rgb(96, 42, 146);
 }

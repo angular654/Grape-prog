@@ -32,14 +32,14 @@ export class CreateArticleComponent implements OnInit {
       return false; 
     }
     else {
-      if (this.article.title==undefined||this.article.category==undefined||this.article.content==undefined){
+      if (this.article.title==undefined||this.article.category==undefined||this.article.content==undefined||this.article.refs == undefined){
         alert('Некорректные данные');
         return false;
       } else {
         this.msgdate = moment().format('LLL'); 
-        this.db.list('artContent').push({ content: this.article.title + '🍇' + this.article.category + '🍇' + this.article.content + '🍇' + this.msgdate});
+        this.db.list('artContent').push({ content: this.article.title + '🍇' + this.article.category + '🍇' + this.article.content + '🍇'  + this.msgdate + '🍇' + this.article.refs });
         alert('Статья опубликована');
-        this.article.title = this.article.category = this.article.content = undefined;
+        this.article.title = this.article.category = this.article.content = this.article.refs = undefined;
         console.log('%c You create article🍇', 'font-size: 36px; font-weight: bold');
         return true;
       }

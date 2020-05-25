@@ -118,3 +118,6 @@ ul li ul li {
 .dropdown:hover .dropbtn {
   background-color: #6a3e8e;
 }
+.dropbtn:hover{
+  background-color: #6a3e8e;
+}

@@ -1,6 +1,6 @@
 <div id="ca">
 <div *ngIf="submitted;" style="width: 300px;">
-  <form (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit()"  action="https://formspree.io/v.ivhanenko04@gmail.com" method="POST" >
     <div class="form-group">
       <h3>Создать статью</h3>
       <label for="title" maxlength="30">Заголовок</label>
@@ -8,8 +8,8 @@
     </div>
  
     <div class="form-group">
-      <label for="category" maxlength="15">Категория</label>
-      <input type="text" class="form-control" id="category" required [(ngModel)]="article.category" name="category">
+      <label for="category">Категория</label>
+      <input type="text" class="form-control" id="category" required [(ngModel)]="article.category" name="category" maxlength="15"> 
     </div>
 
     <div class="form-group">
@@ -18,8 +18,12 @@
       </div>
 
       <div class="form-group">
-        <label for="content" maxlength="500">Содержание</label>
-        <textarea type="text" class="form-control" id="content" required [(ngModel)]="article.content" name="content"></textarea>
+        <label for="content" >Содержание</label>
+        <textarea type="text" class="form-control" id="content" required [(ngModel)]="article.content" name="content" ></textarea>
+      </div>
+      <div class="form-group">
+        <label for="content" >Ссылка</label>
+        <input type="text" class="form-control" id="refs" required [(ngModel)]="article.refs" name="refs" >
         <re-captcha></re-captcha>
       </div>
  
@@ -39,7 +43,11 @@
     </h1>
     <div id='cat'>{{article.content.split('🍇')[1]}}</div>
     <img src="assets/grape.PNG">
-    <div id='cont'>{{article.content.split('🍇')[2]}}</div>
+    <div id='cont'>IT-школа GENDALF {{article.content.split('🍇')[2]}}</div>
+    <h1 id="ref">Полезные ссылки: </h1>
+    <h3>
+      <a href="{{article.content.split('🍇')[4]}}">Воскресная компьютерная школа мехмата ЮФУ</a>
+    </h3>
     <b>Дата публикации : {{article.content.split('🍇')[3]}}</b>
     <hr>
   </div>
