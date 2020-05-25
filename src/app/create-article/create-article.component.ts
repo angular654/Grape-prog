@@ -33,7 +33,7 @@ export class CreateArticleComponent implements OnInit {
     }
     else {
       if ((this.article.title==undefined||this.article.category==undefined||this.article.content==undefined||this.article.refs == undefined)&&
-      (/(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/.test(this.article.refs) == false)){
+      !(/(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/gi.test(this.article.refs))){
         alert('Некорректные данные');
         return false;
       } else {
