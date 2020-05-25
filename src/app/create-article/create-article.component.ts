@@ -32,7 +32,8 @@ export class CreateArticleComponent implements OnInit {
       return false; 
     }
     else {
-      if (this.article.title==undefined||this.article.category==undefined||this.article.content==undefined||this.article.refs == undefined){
+      if ((this.article.title==undefined||this.article.category==undefined||this.article.content==undefined||this.article.refs == undefined)&&
+      (/(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/.test(this.article.refs) == false)){
         alert('Некорректные данные');
         return false;
       } else {
