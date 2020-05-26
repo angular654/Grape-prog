@@ -24,10 +24,13 @@ export class ChatComponent implements OnInit {
   ngOnInit() {
    }
   onSubmit() {
-    setTimeout(()=>{
+    if (grecaptcha.getResponse() == ""){
+      return false;
+    } 
+      else {
       this.db.list('items').push({ content: this.user + '$' + this.itemValue});
-      console.log( this.db.list('items').snapshotChanges());
-    }, 2000);
+      grecaptcha.reset();
+    }
   }
   login (){
     if (grecaptcha.getResponse() == ""){
