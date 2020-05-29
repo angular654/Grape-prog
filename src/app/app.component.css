@@ -1,22 +1,19 @@
 #grape {
     color: #9f0cc4;
 }
-img {
-    width:auto;
-    height: auto;
-}
-#pic {
-  text-decoration: none;
-  object-fit: contain;
-  width: 100%;
-}
-figure{
-  width: auto;
-  height: auto;
-}
 
+#title{
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
+ font-size: 50px;
+ width: auto;
+ color: #6a3e8e;
+}
 a {
   text-decoration: none;
+  
+}
+#title a:hover {
+  color: #9360bd;
 }
 
 nav {
@@ -99,7 +96,6 @@ ul li ul li {
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  color: white;
   padding: 12px 16px;
   text-decoration: none;
   display: block;

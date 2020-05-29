@@ -14,15 +14,14 @@
 <div id="chat">
   <div style="width: 300px;" *ngIf="!auth">
     <h2 style="text-align: center;">🍇🍇Chat🍇🍇</h2>
-    <button  (click)="login()"style="background-color: #9f0cc4;color:white" >Login with Google</button>
+    <button  id="login_btn" (click)="login()">Login with Google</button>
     <re-captcha></re-captcha>
   </div>
 <div *ngIf="auth" #scrollMe [scrollTop]="scrollMe.scrollHeight">
   <h2> Grapeprog Chat🍇</h2>
   <div  id="chatfield">
   <div class="col-md-3" *ngFor="let item of items | async"  class="example-box"  >
-    <p  class="badge badge-secondary" style="background-color: blueviolet;" id="chatUsers" >{{item.content.split('$')[0]}}
-    </p>
+    <p  class="badge badge-secondary"  id="chatUsers" >{{item.content.split('$')[0]}}</p>
     <textarea readonly id="content">{{item.content.split('$')[1]}}</textarea>
   </div>
  
