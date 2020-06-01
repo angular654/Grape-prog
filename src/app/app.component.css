@@ -1,6 +1,3 @@
-#grape {
-    color: #9f0cc4;
-}
 
 #title{
  font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -11,6 +8,12 @@
 a {
   text-decoration: none;
   
+}
+@media screen and (max-width: 1300px){
+  img{
+    width:100%;
+    object-fit: contain;
+  } 
 }
 #title a:hover {
   color: #9360bd;
