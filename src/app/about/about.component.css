@@ -1,0 +1,10 @@
+.about{
+    text-align: left;
+    padding-left: 20px;
+    padding-top: 10px;
+    height: calc(100% - 220px);;
+}
+#pic{
+    object-fit: cover;
+    width: 50px;  
+}

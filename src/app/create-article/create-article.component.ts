@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
- 
+import { Observable } from 'rxjs';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { Article } from '../home/article';
-import { ArticleService } from '../article-service.service';
+import * as moment from 'moment';
 @Component({
   selector: 'app-create-article',
   templateUrl: './create-article.component.html',
@@ -10,25 +10,40 @@ import { ArticleService } from '../article-service.service';
 })
 export class CreateArticleComponent implements OnInit {
   article: Article = new Article();
-  submitted = false;
+  articleContent : Observable<any[]>;
+  submitted : boolean = false;
+  msgdate: any;
 
-  constructor(private articleService: ArticleService) { }
-
+  constructor( private db: AngularFireDatabase) {
+    this.articleContent = db.list('artContent').valueChanges();
+   }
   ngOnInit() {
   }
-  newCustomer(): void {
-    this.submitted = false;
-    this.article = new Article();
-  }
- 
-  save() {
-    this.articleService.createCustomer(this.article);
-    this.article = new Article();
-  }
- 
-  onSubmit() {
+  createArticle(){
     this.submitted = true;
-    this.save();
+    console.clear();
   }
-
+  checkArticle(){
+    this.submitted = false;
+    console.clear();
+  }
+  onSubmit() {
+    if (grecaptcha.getResponse()==""){
+      return false; 
+    }
+    else {
+      if ((this.article.title==undefined||this.article.category==undefined||this.article.content==undefined||this.article.refs == undefined)&&
+      !(/(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/gi.test(this.article.refs))){
+        alert('Некорректные данные');
+        return false;
+      } else {
+        this.msgdate = moment().format('LLL'); 
+        this.db.list('artContent').push({ content: this.article.title + '🍇' + this.article.category + '🍇' + this.article.content + '🍇'  + this.msgdate + '🍇' + this.article.refs });
+        alert('Статья опубликована');
+        this.article.title = this.article.category = this.article.content = this.article.refs = undefined;
+        console.log('%c You create article🍇', 'font-size: 36px; font-weight: bold');
+        return true;
+      }
+    }
+  }
 }

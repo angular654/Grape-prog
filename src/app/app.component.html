@@ -1,7 +1,17 @@
-<figure><img src="../assets/222.png"></figure>
-<div class="shadow p-3 mb-5 bg-white rounded">
-            <a class="nav-link"  id="grape" routerLink="">Home<span class="sr-only">(current)</span></a>
-            <a class="nav-link" id="grape" routerLink="/chat">Chat</a>
-            <a class="nav-link" id="grape" routerLink="/about">About</a>
-</div> 
-<router-outlet></router-outlet>
+<a id="title" routerLink="" >GRAPE PROG</a>
+<div  id="top">
+            <div class="dropdown">
+              <button class="dropbtn">Menu</button>
+              <div class="dropdown-content">
+                <ul>
+                  <li><a routerLink="">Home<span class="sr-only">(current)</span></a></li>
+                  <li><a routerLink="/chat">Chat</a></li>
+                  <li><a routerLink="/about">About</a></li>
+              </ul>
+              </div>
+            </div>
+            <button class="dropbtn" routerLink="/reg">Sign up</button>
+             <router-outlet></router-outlet>
+            </div> 
+
+

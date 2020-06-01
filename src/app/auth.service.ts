@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { auth } from 'firebase/app';
 import * as firebase from 'firebase/app';
 import { switchMap, first, map } from 'rxjs/operators';
 
@@ -18,8 +17,13 @@ export class AuthService {
       .signInWithPopup(provider)
       .then(res => {
         resolve(res);
+        console.log('You have been successfully logged in!');
+        return true
+      }).catch((error) => {
+        console.log(error);
+        return false
       })
-      return true
+      return false
     })
   }
   registerUser(value) {  

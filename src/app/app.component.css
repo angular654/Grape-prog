@@ -1,8 +1,119 @@
 #grape {
     color: #9f0cc4;
 }
-img {
-    display: block;
-    width:auto;
-    height:auto;
+
+#title{
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
+ font-size: 50px;
+ width: auto;
+ color: #6a3e8e;
+}
+a {
+  text-decoration: none;
+  
+}
+#title a:hover {
+  color: #9360bd;
+}
+
+nav {
+    border-radius: 10px;
+}
+
+ul {
+  color: #9f0cc4;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+li {
+    color: #fff;
+    background-color: #9f0cc4;
+    float: left;
+    padding: 1rem;
+    position: relative;
+    text-decoration: none;
+    transition-duration: 0.2s;
+    
+}
+  
+li a {
+  color: #fff;
+}
+
+li:hover {
+    background: #7b1794;
+    cursor: pointer;
+}
+
+ul li ul {
+    background: #690781;
+    visibility: hidden;
+  opacity: 0;
+  min-width: 5rem;
+    position: absolute;
+  margin-top: 1rem;
+    left: 0;
+  display: none;
+}
+
+ul li:hover > ul,
+ul li ul:hover {
+  visibility: visible;
+  opacity: 1;
+}
+
+ul li ul li {
+    clear: both;
+  width: 100%;
+}
+.dropbtn {
+  background-color: #7b1794;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border: 2px solid  #6a3e8e;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  padding-left: 12px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  width: 120px;
+  text-align: center;
+}
+
+/* Change color of dropdown links on hover */
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #6a3e8e;
+}
+.dropbtn:hover{
+  background-color: #6a3e8e;
 }

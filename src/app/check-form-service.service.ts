@@ -47,6 +47,12 @@ export class CheckFormService {
       else
       return true;
   }
+  emailValid(email){
+    if (!/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/gi.test(email))
+      return false;
+      else
+      return true;
+  }
   passwordLength(password){
     if (password.length < 11)
       return false;
