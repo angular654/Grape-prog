@@ -3,6 +3,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { AuthService } from '../auth.service';
 import * as moment from 'moment';
+import { analytics } from 'firebase';
 
 
 

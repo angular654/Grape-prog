@@ -30,7 +30,7 @@ export class CheckFormService {
       return true;
   }
   nameLength(name){
-    if (name.length < 4)
+    if (name.length < 3)
       return false;
       else
       return true;
