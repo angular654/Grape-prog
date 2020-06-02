@@ -49,7 +49,7 @@ async Output() {
   if (user) {
     console.log('user was logged');
   } else {
-    console.log('bruh');
+    console.log('no');
  }
 }
 
