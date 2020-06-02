@@ -15,7 +15,6 @@
   <div style="width: 300px;" *ngIf="!auth">
     <h2 style="text-align: center;">🍇🍇Chat🍇🍇</h2>
     <button  id="login_btn" (click)="login()">Login with Google</button>
-    <re-captcha></re-captcha>
   </div>
 <div *ngIf="auth" #scrollMe [scrollTop]="scrollMe.scrollHeight">
   <h2> Grapeprog Chat🍇</h2>
@@ -28,7 +27,6 @@
 </div>
 
 <div class="container-fluid">
-  <re-captcha></re-captcha>
   <div style="width: 300px;">
     <form (ngSubmit)="onSubmit()">
       <div class="form-group">

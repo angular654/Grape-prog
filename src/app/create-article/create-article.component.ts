@@ -13,7 +13,6 @@ export class CreateArticleComponent implements OnInit {
   articleContent : Observable<any[]>;
   submitted : boolean = false;
   msgdate: any;
-
   constructor( private db: AngularFireDatabase) {
     this.articleContent = db.list('artContent').valueChanges();
    }
@@ -28,10 +27,6 @@ export class CreateArticleComponent implements OnInit {
     console.clear();
   }
   onSubmit() {
-    if (grecaptcha.getResponse()==""){
-      return false; 
-    }
-    else {
       if ((this.article.title==undefined||this.article.category==undefined||this.article.content==undefined||this.article.refs == undefined)&&
       !(/(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/gi.test(this.article.refs))){
         alert('Некорректные данные');
@@ -45,5 +40,4 @@ export class CreateArticleComponent implements OnInit {
         return true;
       }
     }
-  }
 }

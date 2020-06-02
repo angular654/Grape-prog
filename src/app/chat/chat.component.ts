@@ -18,26 +18,18 @@ export class ChatComponent implements OnInit {
   msgdate = moment().calendar();
   items: Observable<any[]>;
 
+
   constructor(private db : AngularFireDatabase, private af : AuthService){
     this.items = db.list('items').valueChanges();
   }
   ngOnInit() {
    }
   onSubmit() {
-    if (grecaptcha.getResponse() == ""){
-      return false;
-    } 
-      else {
       this.db.list('items').push({ content: this.user + '$' + this.itemValue});
-      grecaptcha.reset();
-    }
   }
-  login (){
-    if (grecaptcha.getResponse() == ""){
-      return false;
-    } 
-      else {
-          if(confirm("Вы вошли в чат!"+this.msgdate)){
+  login ()
+  {
+      if(confirm("Вы вошли в чат!"+this.msgdate)){
             this.af.doGoogleLogin();
             this.user = this.af.getUser();
             this.auth = true;
@@ -47,5 +39,4 @@ export class ChatComponent implements OnInit {
       }
 
     } 
-  }
 }
