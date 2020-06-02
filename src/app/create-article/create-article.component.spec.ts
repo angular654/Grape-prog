@@ -19,7 +19,10 @@ describe('CreateArticleComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  it('should create', async(() => {
+    fixture.whenStable().then(() => {
+      expect(component).toBeTruthy();
+    })
+  }));
+
 });
