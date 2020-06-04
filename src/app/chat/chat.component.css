@@ -13,7 +13,6 @@
       text-align: left;
       padding-left: 20px;
       background-image: url(src/assets/grape.png);
-      background-position-x: left;
   }
   #title{
     text-align: center;
@@ -21,7 +20,6 @@
     background-color: rgb(97, 36, 153);
   }
   .form-group{
-    background-color:  rgb(97, 36, 153);
     background-image: none;
   }
 }

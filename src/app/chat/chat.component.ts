@@ -36,6 +36,7 @@ export class ChatComponent implements OnInit {
           } 
       else {
         this.auth = false;
+        return false
       }
 
     } 
