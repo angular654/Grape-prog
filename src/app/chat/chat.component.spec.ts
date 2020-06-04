@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ChatComponent } from './chat.component';
 import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
+import { EmailSenderComponent } from '../email-sender/email-sender.component';
 describe('ChatComponent', () => {
   let component: ChatComponent;
   let fixture: ComponentFixture<ChatComponent>;
@@ -12,7 +13,7 @@ describe('ChatComponent', () => {
         RouterTestingModule,
         FormsModule
       ],
-      declarations: [ ChatComponent ]
+      declarations: [ ChatComponent,EmailSenderComponent ]
     })
     .compileComponents();
   }));

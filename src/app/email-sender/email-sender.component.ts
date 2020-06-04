@@ -12,10 +12,11 @@ export class EmailSenderComponent implements OnInit {
   ngOnInit() {
   }
    Check(){
-     if (this.validator.checkEmail(this.email).valueOf){
-       alert("Неверный email! Попробуйте еще раз")
+     if (this.validator.checkEmail(this.email)){
+      alert('Вы подписались на нашу рассылку!');
      } else {
-      setTimeout(()=>(alert('Вы подписались на нашу рассылку!')),1000);
+      alert("Неверный email! Попробуйте еще раз");
+      return false
      }
    }
 }
