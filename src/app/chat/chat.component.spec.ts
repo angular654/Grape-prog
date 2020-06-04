@@ -3,6 +3,9 @@ import { ChatComponent } from './chat.component';
 import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { EmailSenderComponent } from '../email-sender/email-sender.component';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireModule } from '@angular/fire';
+
 describe('ChatComponent', () => {
   let component: ChatComponent;
   let fixture: ComponentFixture<ChatComponent>;
@@ -11,9 +14,14 @@ describe('ChatComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        FormsModule
+        FormsModule,
+        AngularFireDatabase,
+        AngularFireModule
       ],
-      declarations: [ ChatComponent,EmailSenderComponent ]
+      declarations: [ ChatComponent,EmailSenderComponent ],
+      providers: [
+
+      ]
     })
     .compileComponents();
   }));

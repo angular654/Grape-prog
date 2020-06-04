@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HomeComponent } from './home.component';
 import { CreateArticleComponent } from '../create-article/create-article.component';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -13,7 +14,8 @@ describe('HomeComponent', () => {
       imports: [FormsModule
       ],
       declarations: [ HomeComponent,CreateArticleComponent
-      ]
+      ],
+      providers: [{ provide: AuthService}]
     })
     .compileComponents();
   }));

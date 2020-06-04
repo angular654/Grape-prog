@@ -4,7 +4,10 @@ import { AuthService } from './auth.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 
 describe('AuthService', () => {
-  beforeEach(() => TestBed.configureTestingModule({providers: [AuthService, AngularFireAuth]}));
+  beforeEach(() => TestBed.configureTestingModule({
+    imports: [AngularFireAuth],
+    providers: [AuthService]
+  }));
 
   it('should be created', () => {
     const service: AuthService = TestBed.get(AuthService);
