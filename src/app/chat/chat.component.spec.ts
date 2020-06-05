@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { EmailSenderComponent } from '../email-sender/email-sender.component';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { AngularFireModule } from '@angular/fire';
 
 describe('ChatComponent', () => {
   let component: ChatComponent;
@@ -15,12 +14,10 @@ describe('ChatComponent', () => {
       imports: [
         RouterTestingModule,
         FormsModule,
-        AngularFireDatabase,
-        AngularFireModule
       ],
       declarations: [ ChatComponent,EmailSenderComponent ],
       providers: [
-
+        AngularFireDatabase
       ]
     })
     .compileComponents();
