@@ -8,6 +8,7 @@ import { AuthService } from '../auth.service';
 import { AngularFireAuth} from '@angular/fire/auth';
 import { CheckFormService } from '../check-form-service.service';
 import { Router } from '@angular/router';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -27,13 +28,23 @@ describe('HomeComponent', () => {
         }
       }
     };
+    
+    const collectionStub = {
+      valueChanges: jasmine.createSpy('valueChanges').and.returnValue('data')
+    }
+    
+    const angularFiresotreStub = {
+      collection: jasmine.createSpy('collection').and.returnValue(collectionStub)
+    }
+    
     TestBed.configureTestingModule({
       imports: [FormsModule,
       ],
       declarations: [ HomeComponent,CreateArticleComponent
       ],
       providers: [ AuthService,{provide:AngularFireAuth, useValue:afAuthStub},AuthComponent,
-        CheckFormService,{provide:Router,useClass: class { navigate = jasmine.createSpy("navigate");}}
+        CheckFormService,{provide:Router,useClass: class { navigate = jasmine.createSpy("navigate");}},
+        {provide:AngularFireDatabase, useValue:angularFiresotreStub}
       ]
     })
     .compileComponents();

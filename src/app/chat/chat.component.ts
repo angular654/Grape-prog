@@ -12,15 +12,15 @@ import * as moment from 'moment';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
-  itemValue = '';
+  itemValue: string = '';
   user  = '';
   auth = false;
   msgdate = moment().calendar();
   items: Observable<any[]>;
-
+  
 
   constructor(private db : AngularFireDatabase, private af : AuthService){
-    this.items = db.list('items').valueChanges();
+    this.items = this.db.list('items').valueChanges();
   }
   ngOnInit() {
    }

@@ -8,13 +8,21 @@ describe('CreateArticleComponent', () => {
   let component: CreateArticleComponent;
   let fixture: ComponentFixture<CreateArticleComponent>;
 
+  const collectionStub = {
+    valueChanges: jasmine.createSpy('valueChanges').and.returnValue('data')
+  }
+  
+  const angularFiresotreStub = {
+    collection: jasmine.createSpy('collection').and.returnValue(collectionStub)
+  }
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         FormsModule,
       ],
       declarations: [ CreateArticleComponent ],
-      providers: [AngularFireDatabase]
+      providers: [{provide:AngularFireDatabase, useValue:angularFiresotreStub}]
     })
     .compileComponents();
   }));
