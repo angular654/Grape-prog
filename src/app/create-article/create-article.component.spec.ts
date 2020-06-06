@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { fakeAsync,async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CreateArticleComponent } from './create-article.component';
 import { FormsModule } from '@angular/forms';
@@ -13,7 +13,7 @@ describe('CreateArticleComponent', () => {
   }
   
   const angularFiresotreStub = {
-    collection: jasmine.createSpy('collection').and.returnValue(collectionStub)
+    list: jasmine.createSpy('list').and.returnValue(collectionStub)
   }
 
   beforeEach(async(() => {
@@ -33,10 +33,7 @@ describe('CreateArticleComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', async(() => {
-    fixture.whenStable().then(() => {
-      expect(component).toBeTruthy();
-    })
-  }));
-
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });

@@ -6,6 +6,7 @@ import { EmailSenderComponent } from '../email-sender/email-sender.component';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AuthService } from '../auth.service';
 import { AngularFireAuth} from '@angular/fire/auth';
+import { CheckFormService } from '../check-form-service.service';
 
 describe('ChatComponent', () => {
   let component: ChatComponent;
@@ -30,7 +31,7 @@ describe('ChatComponent', () => {
   }
   
   const angularFiresotreStub = {
-    collection: jasmine.createSpy('collection').and.returnValue(collectionStub)
+    list: jasmine.createSpy('list').and.returnValue(collectionStub)
   }
 
   beforeEach(async(() => {
@@ -41,7 +42,8 @@ describe('ChatComponent', () => {
       ],
       declarations: [ ChatComponent,EmailSenderComponent ],
       providers: [
-        {provide:AngularFireDatabase, useValue:angularFiresotreStub},AuthService,{provide:AngularFireAuth,useValue:afAuthStub}
+        {provide:AngularFireDatabase, useValue:angularFiresotreStub},AuthService,{provide:AngularFireAuth,useValue:afAuthStub},
+        CheckFormService
       ]
     })
     .compileComponents();
@@ -57,6 +59,6 @@ describe('ChatComponent', () => {
     expect(component).toBeTruthy();
   });
   it('login should return false', () => {
-    expect(component.login()).toBe(false);
+    expect(component.login()).toBe(undefined);
   });
 });

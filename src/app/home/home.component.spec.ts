@@ -34,7 +34,7 @@ describe('HomeComponent', () => {
     }
     
     const angularFiresotreStub = {
-      collection: jasmine.createSpy('collection').and.returnValue(collectionStub)
+      list: jasmine.createSpy('list').and.returnValue(collectionStub)
     }
     
     TestBed.configureTestingModule({
