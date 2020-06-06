@@ -3,37 +3,15 @@ import { fakeAsync,async, ComponentFixture, TestBed } from '@angular/core/testin
 import { CreateArticleComponent } from './create-article.component';
 import { FormsModule } from '@angular/forms';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { Observable } from 'rxjs';
 
 describe('CreateArticleComponent', () => {
   let component: CreateArticleComponent;
-  let fixture: ComponentFixture<CreateArticleComponent>;
-
-  const collectionStub = {
-    valueChanges: jasmine.createSpy('valueChanges').and.returnValue('data')
-  }
-  
-  const angularFiresotreStub = {
-    list: jasmine.createSpy('list').and.returnValue(collectionStub)
-  }
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        FormsModule,
-      ],
-      declarations: [ CreateArticleComponent ],
-      providers: [{provide:AngularFireDatabase, useValue:angularFiresotreStub}]
-    })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(CreateArticleComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
+  let db: AngularFireDatabase
+ 
   it('should create', () => {
+    component = new CreateArticleComponent(db);
+    component.ngOnInit()
     expect(component).toBeTruthy();
   });
 });
