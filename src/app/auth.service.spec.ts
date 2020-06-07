@@ -31,6 +31,10 @@ describe('AuthService', () => {
   it(' doGoogleLogin should used', () => {
     const service: AuthService = TestBed.get(AuthService);
     expect(service.doGoogleLogin()).toBeTruthy();
+  }); 
+  it(' getUser() should return string', () => {
+    const service: AuthService = TestBed.get(AuthService);
+    let str :string
+    expect(service.getUser()).toBe(str);
   });
-  
 }); 

@@ -16,7 +16,7 @@ export class CreateArticleComponent implements OnInit {
   constructor( public db: AngularFireDatabase) {
    }
   ngOnInit() {
-    this.articleContent = this.db.list('artContent').valueChanges();
+    return this.articleContent = this.db.list('artContent').valueChanges();
   }
   createArticle(){
     //this.submitted = true;
