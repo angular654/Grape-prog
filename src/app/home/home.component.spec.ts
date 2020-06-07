@@ -12,8 +12,8 @@ import { AngularFireDatabase } from '@angular/fire/database';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
-  let af: AuthService;
   let ac: AuthComponent;
+  let af: AuthService;
   it('should create', () => {
     component = new HomeComponent(af,ac);
     expect(component).toBeTruthy();

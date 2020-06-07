@@ -13,18 +13,20 @@ export class CreateArticleComponent implements OnInit {
   articleContent : Observable<any[]>;
   submitted : boolean = false;
   msgdate: any;
-  constructor( private db: AngularFireDatabase) {
-    this.articleContent = db.list('artContent').valueChanges();
+  constructor( public db: AngularFireDatabase) {
    }
   ngOnInit() {
+    this.articleContent = this.db.list('artContent').valueChanges();
   }
   createArticle(){
-    this.submitted = true;
+    //this.submitted = true;
     console.clear();
+    return this.submitted = true;
   }
   checkArticle(){
-    this.submitted = false;
+    //this.submitted = false;
     console.clear();
+    return this.submitted = false;
   }
   onSubmit() {
       if ((this.article.title==undefined||this.article.category==undefined||this.article.content==undefined||this.article.refs == undefined)&&

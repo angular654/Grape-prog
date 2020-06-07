@@ -38,7 +38,7 @@ export class AuthService {
   return this.afAuth.auth.currentUser.displayName;
 }
 signOut() {
-  this.afAuth.auth.signOut();
+  return this.afAuth.auth.signOut();
 }
 isLoggedIn() {
   return this.afAuth.authState.pipe(first()).toPromise();

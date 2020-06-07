@@ -28,5 +28,9 @@ describe('AuthService', () => {
     const service: AuthService = TestBed.get(AuthService);
     expect(service).toBeTruthy();
   });
+  it(' doGoogleLogin should used', () => {
+    const service: AuthService = TestBed.get(AuthService);
+    expect(service.doGoogleLogin()).toBeTruthy();
+  });
   
 }); 
