@@ -1,21 +1,19 @@
 
-<div class="Sender">
+<div class="Sender" class="card">
 <form class="form-group"
   action="https://formspree.io/xjvorwde"
   method ="POST"
   #declarativeForm="ngForm"
 >
-<div><label>
-  <h1 style="color : rgb(97, 36, 153);">Наша рассылка</h1>
+<div class="card-body"><label>
+  <h1 class="card-header">Наша рассылка</h1>
     Your email:
     <input type="email" [(ngModel)]="email" name="email" class="form-control">
   </label></div>
-  <div><label><br>
+  <div class="card-body"><label><br>
     Your message:
     <textarea name="message"class="form-control" readonly>Вы подписались на рассылку</textarea> 
   </label></div>
-  <!-- your other form fields go here -->
-
-  <button type="submit" (click)="Check()">Send</button>
+  <button type="submit" id="btn"(click)="Check()">Send</button>
 </form>
 </div>

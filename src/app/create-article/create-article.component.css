@@ -42,4 +42,12 @@ a {
 a:hover{
     color: rgb(96, 42, 146);
 }
-
+img{
+  width: 60px;
+  height: 50px;
+  border-radius: 100px;
+  position: absolute;
+}
+.card-title{
+    padding-left:60px;
+}

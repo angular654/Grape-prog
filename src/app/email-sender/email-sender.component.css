@@ -1,6 +1,7 @@
 .Sender{
     padding-left: 40%;
     position:absolute;
+    display: ruby;
     left: 50%;
     margin-left: -150px;
 }
@@ -26,3 +27,17 @@
   progress::-webkit-progress-value {
     transition: width 0.1s ease;
   }
+.card-header{
+  color : rgb(97, 36, 153);
+  height: 40px;
+  font-size: medium;
+}
+.card{
+  width: fit-content;
+}
+#btn{
+  padding-right: 20px;
+  background-color : rgb(97, 36, 153);
+  color:white;
+  padding-left: 20px;
+}

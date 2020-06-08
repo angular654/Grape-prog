@@ -36,19 +36,18 @@
   <button  class="btn btn-success" (click)="createArticle()">Создать статью</button>
   <hr>
   <div  class="container-fluid" *ngFor="let article of articleContent | async">
-    <div class="arts">
-      <h1 id='tt'>
+    <div class="card">
+      <h1 class='card-title'>
         {{article.content.split('🍇')[0]}}
     </h1>
     <div id='cat'>{{article.content.split('🍇')[1]}}</div>
     <img src="assets/grape.PNG">
-    <div id='cont'>{{article.content.split('🍇')[2]}}</div>
+    <div class="card-text">{{article.content.split('🍇')[2]}}</div>
     <h1 id="ref">Полезные ссылки: </h1>
     <h3>
       <a href="{{article.content.split('🍇')[4]}}">{{article.content.split('🍇')[4]}}</a>
     </h3>
     <b>Дата публикации : {{article.content.split('🍇')[3]}}</b>
-    <hr>
   </div>
   <br>
   </div>
