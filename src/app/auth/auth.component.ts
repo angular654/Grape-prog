@@ -22,51 +22,54 @@ export class AuthComponent implements OnInit {
   password:string;
   ngOnInit() {
   }
-  userRegisterClick(name,login,email,password) {
-    const user ={
-      name, login,email,password
-    }
-    if (!this.checkForm.checkName(user.name)){
+  userRegisterClick() {
+    const user = {
+      name:this.name,
+      login:this.login,
+      email:this.email,
+      password:this.password
+    };
+    if (!this.checkForm.checkName(this.name)){
      alert('Имя не введено');
       this.router.navigate(['reg']);
       return false;
       }
-    else if (!this.checkForm.checkName(user.login)){
+    else if (!this.checkForm.checkName(this.login)){
       alert('Логин не введен');
       this.router.navigate(['reg']);
         return false;
       }
-    else if (!this.checkForm.checkName(user.email)){
+    else if (!this.checkForm.checkName(this.email)){
       alert('Email не введен');
       this.router.navigate(['reg']);
         return false;
       }
-    else if (!this.checkForm.checkName(user.password)){
+    else if (!this.checkForm.checkName(this.password)){
       alert('Пароль не введен');
       this.router.navigate(['reg']);
         return false;
       }
-      else  if (!this.checkForm.passwordLength(user.password)){
+      else  if (!this.checkForm.passwordLength(this.password)){
         alert("Пароль слишком короткий");
         this.router.navigate(['reg']);
        return false;
        }
-    else  if (!this.checkForm.nameLength(user.name)){
+    else  if (!this.checkForm.nameLength(this.name)){
       alert("Имя слишком короткое");
        this.router.navigate(['reg']);
        return false;
        }
-    else  if (!this.checkForm.loginLength(user.login)){
+    else  if (!this.checkForm.loginLength(this.login)){
       alert("Логин слишком короткий");
       this.router.navigate(['reg']);
        return false;
        }
-     else  if (!this.checkForm.emailValid(user.email)){
+     else  if (!this.checkForm.emailValid(this.email)){
         alert(" Email неверный");
         this.router.navigate(['reg']);
          return false;
          }
-    else  if (!this.checkForm.emailLength(user.email)){
+    else  if (!this.checkForm.emailLength(this.email)){
       alert(" Email слишком короткий");
       this.router.navigate(['reg']);
        return false;
