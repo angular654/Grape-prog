@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() { 
   }
   logout(){
-     //this.af.signOut();
+     this.af.signOut();
      return this.ac.register  = false;
   }
 }

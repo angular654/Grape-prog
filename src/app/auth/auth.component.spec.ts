@@ -8,7 +8,12 @@ import { Router } from '@angular/router';
 describe('AuthComponent', () => {
   let component: AuthComponent;
   let fixture: ComponentFixture<AuthComponent>;
-
+  const user = {
+    name:"Alex",
+    login:"jisdjhuHHH",
+    email:"l.svddo@gmail.com",
+    password:"YUGndsjd82ccss21s"
+  };
   beforeEach(async(() => {
     const afAuthStub = {
       auth: {
@@ -43,5 +48,4 @@ describe('AuthComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  
 });

@@ -3,6 +3,7 @@ import { AuthService } from "../auth.service";
 import { CheckFormService } from '../check-form-service.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { stringify } from 'querystring';
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
@@ -21,13 +22,10 @@ export class AuthComponent implements OnInit {
   password:string;
   ngOnInit() {
   }
-  userRegisterClick() {
-    const user = {
-        name:this.name,
-        login:this.login,
-        email:this.email,
-        password:this.password
-    };
+  userRegisterClick(name,login,email,password) {
+    const user ={
+      name, login,email,password
+    }
     if (!this.checkForm.checkName(user.name)){
      alert('Имя не введено');
       this.router.navigate(['reg']);
