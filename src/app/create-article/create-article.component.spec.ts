@@ -1,9 +1,20 @@
 import { CreateArticleComponent } from './create-article.component';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { of } from 'rxjs';
 
 describe('CreateArticleComponent', () => {
   let component: CreateArticleComponent;
   let db: AngularFireDatabase;
+  beforeEach(() =>{
+    db = {
+      list(n:string){
+        return{
+          valueChanges: () => of([]),
+          push:(data: any) => {}
+        };
+      }
+    } as any;
+  })
   it('should create', () => {
     component = new CreateArticleComponent(db);
     expect(component).toBeTruthy();
@@ -23,5 +34,13 @@ describe('CreateArticleComponent', () => {
   it('onSubmit() should return false', () => {
     component = new CreateArticleComponent(db);
     expect(component.onSubmit()).toBe(false);
+  });
+  it('onSubmit() should return true', () => {
+    component = new CreateArticleComponent(db);
+    component.article.title = "Title";
+    component.article.content = "Some content";
+    component.article.category ="category";
+    component.article.refs = "https://grape-proger.000webhostapp.com/";
+    expect(component.onSubmit()).toBe(true);
   });
 });

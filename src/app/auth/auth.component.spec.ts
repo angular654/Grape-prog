@@ -8,16 +8,6 @@ import { Router } from '@angular/router';
 describe('AuthComponent', () => {
   let component: AuthComponent;
   let fixture: ComponentFixture<AuthComponent>;
-  name:"fdfdsf";
-  login:"dfsfdsfsds";
-  email:"f.dfdf@gmail.com";
-  password:"jhfusdfhsHHH23";
-  const user = {
-    name:"Alex",
-    login:"jisdjhuHHH",
-    email:"l.svddo@gmail.com",
-    password:"YUGndsjd82ccss21s"
-  };
   beforeEach(async(() => {
     const afAuthStub = {
       auth: {
