@@ -42,14 +42,16 @@ signOut() {
 }
 isLoggedIn() {
   return this.afAuth.authState.pipe(first()).toPromise();
+  
 }
 
-async Output() {
-  const user = await this.isLoggedIn()
+ Output() {
+  const user =  this.isLoggedIn()
   if (user) {
     console.log('user was logged');
   } else {
     console.log('no');
+    return false
  }
 }
 

@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { AuthService } from './auth.service';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { PromiseType } from 'protractor/built/plugins';
 
 describe('AuthService', () => {
   const afAuthStub = {

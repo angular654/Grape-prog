@@ -82,6 +82,7 @@ export class AuthComponent implements OnInit {
   GoogleCheckIn(){
      this.auth.doGoogleLogin();
      this.register = true;
+     return true
   }
 
 }

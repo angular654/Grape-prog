@@ -42,7 +42,7 @@ export class CheckFormService {
       return true;
   }
   emailLength(email){
-    if (email.length < 3)
+    if (email.length < 8)
       return false;
       else
       return true;

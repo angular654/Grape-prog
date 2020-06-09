@@ -8,6 +8,10 @@ import { Router } from '@angular/router';
 describe('AuthComponent', () => {
   let component: AuthComponent;
   let fixture: ComponentFixture<AuthComponent>;
+  name:"fdfdsf";
+  login:"dfsfdsfsds";
+  email:"f.dfdf@gmail.com";
+  password:"jhfusdfhsHHH23";
   const user = {
     name:"Alex",
     login:"jisdjhuHHH",
@@ -47,5 +51,8 @@ describe('AuthComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('userRegisterClick() should return false', () => {
+    expect(component.userRegisterClick()).toBe(false);
   });
 });

@@ -32,11 +32,6 @@ describe('CheckFormServiceService', () => {
     expect(service.checkPassword(user.password)).toBe(true);
   });
   
-  it('checkPassword should return true', () => {
-    const service: CheckFormService = TestBed.get(CheckFormService);
-    expect(service.checkEmail(user.password)).toBe(true);
-  });
-  
   it('nameLength should return true', () => {
     const service: CheckFormService = TestBed.get(CheckFormService);
     expect(service.nameLength(user.name)).toBe(true);
@@ -61,6 +56,42 @@ describe('CheckFormServiceService', () => {
     const service: CheckFormService = TestBed.get(CheckFormService);
     expect(service.emailValid(user.email)).toBe(true);
   });
+  it('emailValid should return false', () => {
+    const service: CheckFormService = TestBed.get(CheckFormService);
+    expect(service.emailValid("fsdf")).toBe(false);
+  });
+  it('passwordLength should return false', () => {
+    const service: CheckFormService = TestBed.get(CheckFormService);
+    expect(service.passwordLength("ww")).toBe(false);
+  });
+  it('emailLength should return false', () => {
+    const service: CheckFormService = TestBed.get(CheckFormService);
+    expect(service.emailLength("d@d")).toBe(false);
+  });
+  it('loginLength should return false', () => {
+    const service: CheckFormService = TestBed.get(CheckFormService);
+    expect(service.loginLength("s")).toBe(false);
+  });
   
+  it('nameLength should return false', () => {
+    const service: CheckFormService = TestBed.get(CheckFormService);
+    expect(service.nameLength('ws')).toBe(false);
+  });
+  it('checkPassword should return false', () => {
+    const service: CheckFormService = TestBed.get(CheckFormService);
+    expect(service.checkPassword(undefined)).toBe(false);
+  });
+  it('checkEmail should return false', () => {
+    const service: CheckFormService = TestBed.get(CheckFormService);
+    expect(service.checkEmail(undefined)).toBe(false);
+  });
+  it('checkLogin should return false', () => {
+    const service: CheckFormService = TestBed.get(CheckFormService);
+    expect(service.checkLogin(undefined)).toBe(false);
+  });
+  it('checkName should return false', () => {
+    const service: CheckFormService = TestBed.get(CheckFormService);
+    expect(service.checkName(undefined)).toBe(false);
+  });
 });
 

@@ -25,9 +25,9 @@ export class ChatComponent implements OnInit {
   ngOnInit() {
    }
   onSubmit() {
-      this.db.list('items').push({ content: this.user + '$' + this.itemValue});
+     this.db.list('items').push({ content: this.user + '$' + this.itemValue});
   }
-  login ()
+  login()
   {
       if(confirm("Вы вошли в чат!"+this.msgdate)){
             this.af.doGoogleLogin();
