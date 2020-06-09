@@ -3,6 +3,11 @@
   <div id="preview" *ngIf="!auth">
     <h2 id="title">🍇🍇Chat🍇🍇</h2>
     <button  id="login_btn" (click)="login()">Login with Google</button>
+    <div class="example-boundary">
+    <div class="example-box" cdkDragBoundary=".example-boundary" cdkDrag>
+      <app-email-sender></app-email-sender>
+    </div>
+    </div>
   </div>
 <div *ngIf="auth" #scrollMe [scrollTop]="scrollMe.scrollHeight">
   <h2 id="title"> Grapeprog Chat</h2>
@@ -26,9 +31,6 @@
   </div>
 </div>
 </div>
-</div>
-<div class="sender">
-  <app-email-sender></app-email-sender>
 </div>
 
 
