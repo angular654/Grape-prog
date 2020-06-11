@@ -5,6 +5,13 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { PromiseType } from 'protractor/built/plugins';
 
 describe('AuthService', () => {
+  const user = {
+    name:"Max",
+    login:"maxsxssd",
+    email:"m.sddfd@gmail.com",
+    password:"sdsavg378dyq8d7saG"
+  };
+  
   const afAuthStub = {
     auth: {
       createUserWithEmailAndPassword(): Promise<void> {
@@ -37,5 +44,14 @@ describe('AuthService', () => {
     const service: AuthService = TestBed.get(AuthService);
     let str :string
     expect(service.getUser()).toBe(str);
+  });
+  it(' getUser() should return string', () => {
+    const service: AuthService = TestBed.get(AuthService);
+    let str :string
+    expect(service.getUser()).toBe(str);
+  });
+  it('registerUser() should equal ', () => {
+    const service: AuthService = TestBed.get(AuthService);
+    expect(service.registerUser(user)).toEqual(afAuthStub.auth.createUserWithEmailAndPassword());
   });
 }); 
