@@ -3,6 +3,8 @@ import { TestBed } from '@angular/core/testing';
 import { AuthService } from './auth.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { PromiseType } from 'protractor/built/plugins';
+import { Observable } from 'rxjs';
+import {of} from 'rxjs'
 
 describe('AuthService', () => {
   const user = {
@@ -11,11 +13,10 @@ describe('AuthService', () => {
     email:"m.sddfd@gmail.com",
     password:"sdsavg378dyq8d7saG"
   };
-  
   const afAuthStub = {
     auth: {
-      createUserWithEmailAndPassword(): Promise<void> {
-        return new Promise<void>(resolve => resolve());
+      createUserWithEmailAndPassword(): Promise<any> {
+        return new Promise<any>(resolve => resolve());
       },
       currentUser: {
         uid: 'blub',
@@ -50,8 +51,16 @@ describe('AuthService', () => {
     let str :string
     expect(service.getUser()).toBe(str);
   });
-  it('registerUser() should equal ', () => {
+  it('registerUser() should used', () => {
     const service: AuthService = TestBed.get(AuthService);
-    expect(service.registerUser(user)).toEqual(afAuthStub.auth.createUserWithEmailAndPassword());
+    expect(service.registerUser(user)).toBeTruthy();
+  });
+  it('signOut() should used', () => {
+    const service: AuthService = TestBed.get(AuthService);
+    expect(service.signOut()).toBeTruthy();
+  });
+  it('isLoggedIn() should used', () => {
+    const service: AuthService = TestBed.get(AuthService);
+    expect(service.isLoggedIn()).toBeTruthy();
   });
 }); 
