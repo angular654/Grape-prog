@@ -5,7 +5,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { PromiseType } from 'protractor/built/plugins';
 import { Observable } from 'rxjs';
 import {of} from 'rxjs'
-import { auth } from 'firebase';
+import { auth, User } from 'firebase';
 
 describe('AuthService', () => {
   const user = {
@@ -21,6 +21,9 @@ describe('AuthService', () => {
       },
       signOut(): Promise<void> {
         return new Promise<void>(resolve => resolve());
+      },
+      authState(): Observable<User>{
+        return new Observable<firebase.User>()
       },
       currentUser: {
         uid: 'blub',
@@ -61,5 +64,10 @@ describe('AuthService', () => {
   it('isLoggedIn() should used', () => {
     const service: AuthService = TestBed.get(AuthService);
     expect(service.isLoggedIn()).toBeTruthy();
+  });
+  it('Output() should used', () => {
+    const service: AuthService = TestBed.get(AuthService);
+    expect(service.Output()).toBeTruthy();
+    
   });
 }); 
