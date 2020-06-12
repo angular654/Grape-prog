@@ -1,10 +1,11 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, inject } from '@angular/core/testing';
 
 import { AuthService } from './auth.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { PromiseType } from 'protractor/built/plugins';
 import { Observable } from 'rxjs';
 import {of} from 'rxjs'
+import { auth } from 'firebase';
 
 describe('AuthService', () => {
   const user = {
@@ -18,12 +19,15 @@ describe('AuthService', () => {
       createUserWithEmailAndPassword(): Promise<any> {
         return new Promise<any>(resolve => resolve());
       },
+      signOut(): Promise<void> {
+        return new Promise<void>(resolve => resolve());
+      },
       currentUser: {
         uid: 'blub',
         sendEmailVerification(): Promise<void> {
           return new Promise<void>(resolve => resolve());
         },
-      }
+      },
     }
   };
 
@@ -41,11 +45,6 @@ describe('AuthService', () => {
     const service: AuthService = TestBed.get(AuthService);
     expect(service.doGoogleLogin()).toBeTruthy();
   }); 
-  it(' getUser() should return string', () => {
-    const service: AuthService = TestBed.get(AuthService);
-    let str :string
-    expect(service.getUser()).toBe(str);
-  });
   it(' getUser() should return string', () => {
     const service: AuthService = TestBed.get(AuthService);
     let str :string
