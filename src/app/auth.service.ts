@@ -41,7 +41,7 @@ signOut() {
   return this.afAuth.auth.signOut();
 }
 isLoggedIn() {
-  return this.afAuth.authState.pipe(first()).toPromise();
+  return this.afAuth.authState;
   
 }
 

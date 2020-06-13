@@ -1,4 +1,4 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { TestBed, inject,fakeAsync,tick } from '@angular/core/testing';
 
 import { AuthService } from './auth.service';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -22,8 +22,8 @@ describe('AuthService', () => {
       signOut(): Promise<void> {
         return new Promise<void>(resolve => resolve());
       },
-      authState(): Observable<User>{
-        return new Observable<firebase.User>()
+      authState(): Promise<any>{
+        return new Promise<any>(resolve => resolve());
       },
       currentUser: {
         uid: 'blub',
@@ -63,11 +63,11 @@ describe('AuthService', () => {
   });
   it('isLoggedIn() should used', () => {
     const service: AuthService = TestBed.get(AuthService);
-    expect(service.isLoggedIn()).toBeTruthy();
+    expect(service.isLoggedIn()).toBe(undefined);
   });
   it('Output() should used', () => {
     const service: AuthService = TestBed.get(AuthService);
-    expect(service.Output()).toBeTruthy();
+    expect(service.Output()).toBe(false);
     
   });
 }); 

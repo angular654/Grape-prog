@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   }
   logout(){
      this.af.signOut();
-     return this.ac.register  = false;
+     this.ac.register  = false;
+     return this.ac.register 
   }
 }

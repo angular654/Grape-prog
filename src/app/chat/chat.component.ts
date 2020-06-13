@@ -26,6 +26,7 @@ export class ChatComponent implements OnInit {
    }
   onSubmit() {
      this.db.list('items').push({ content: this.user + '$' + this.itemValue});
+     return true;
   }
   login()
   {

@@ -7,7 +7,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { AuthService } from '../auth.service';
 import { AngularFireAuth} from '@angular/fire/auth';
 import { CheckFormService } from '../check-form-service.service';
-
+import {of} from 'rxjs';
 describe('ChatComponent', () => {
   let component: ChatComponent;
   let fixture: ComponentFixture<ChatComponent>;
@@ -26,13 +26,14 @@ describe('ChatComponent', () => {
     }
   };
 
-  const collectionStub = {
-    valueChanges: jasmine.createSpy('valueChanges').and.returnValue('data')
-  }
-  
-  const angularFiresotreStub = {
-    list: jasmine.createSpy('list').and.returnValue(collectionStub)
-  }
+  const db = {
+    list(n:string){
+      return{
+        valueChanges: () => of([]),
+        push:(data: any) => {}
+      };
+    }
+  } as any;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -42,7 +43,7 @@ describe('ChatComponent', () => {
       ],
       declarations: [ ChatComponent,EmailSenderComponent ],
       providers: [
-        {provide:AngularFireDatabase, useValue:angularFiresotreStub},AuthService,{provide:AngularFireAuth,useValue:afAuthStub},
+        {provide:AngularFireDatabase, useValue:db},AuthService,{provide:AngularFireAuth,useValue:afAuthStub},
         CheckFormService
       ]
     })
@@ -60,5 +61,8 @@ describe('ChatComponent', () => {
   });
   it('login should return false', () => {
     expect(component.login()).toBe(undefined);
+  });
+  it('onSubmit should return true', () => {
+    expect(component.onSubmit()).toBe(true);
   });
 });
