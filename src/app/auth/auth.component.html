@@ -5,6 +5,6 @@
         <input type="text" [(ngModel)]="login" name="login" placeholder="Введите логин " maxlength="25" class = "form-control"/><br>
         <input type="email" [(ngModel)]="email" name="email" placeholder="Введите email" maxlength="30" class = "form-control"/><br>
         <input type="password" [(ngModel)]="password" name="password" placeholder="Введите пароль" maxlength="30" class = "form-control"/><br>
-        <button class="btn btn-success"  (click)="userRegisterClick()" routerLink="createPost" [disabled]="!declarativeForm.valid">Войти</button>
+        <button   (click)="userRegisterClick()" routerLink="createPost" [disabled]="!declarativeForm.valid">Войти</button>
 </form>
 </div>

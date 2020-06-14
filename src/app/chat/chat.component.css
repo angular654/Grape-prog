@@ -92,3 +92,22 @@ textarea{
   text-align: center;
   border-radius: 10px;
 }
+button{
+  color:#45175f;
+  padding: 10px 20px;
+  width:200px;
+  text-decoration:none;
+  margin:20px auto;
+  background-image: linear-gradient(to left,transparent,transparent 50%,#8c00ff 50%,#570785);
+  background-position: 100% 0;
+  background-size: 200% 100%;
+  transition: all .25s ease-in;
+  font: 400 18px tahoma;
+  border: 3px solid #570785;
+  background-color: white;
+  border-radius: 5px;
+ }
+button:hover {
+ background-position: 0 0;
+ color:#fff;
+ }
