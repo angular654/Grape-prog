@@ -26,14 +26,14 @@
         <input type="text" class="form-control" id="refs" required [(ngModel)]="article.refs" name="refs" >
       </div>
  
-    <button type="submit" class="btn btn-success">Отправить</button>
-    <button  class="btn btn-success" (click)="checkArticle()">Поcмотреть статьи</button>
+    <button type="submit" >Отправить</button>
+    <button  (click)="checkArticle()">Поcмотреть статьи</button>
   </form>
 </div>
  
 <div *ngIf="!submitted" id="TheBox">
   <h4>Опубликованные статьи</h4>
-  <button  class="btn btn-success" (click)="createArticle()">Создать статью</button>
+  <button   (click)="createArticle()">Создать статью</button>
   <hr>
   <div  class="container-fluid" *ngFor="let article of articleContent | async">
     <div class="card">
