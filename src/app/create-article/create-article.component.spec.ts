@@ -43,4 +43,8 @@ describe('CreateArticleComponent', () => {
     component.article.refs = "https://grape-proger.000webhostapp.com/";
     expect(component.onSubmit()).toBe(true);
   });
+  it('ngOnInint should used', () => {
+    component = new CreateArticleComponent(db);
+    expect(component.ngOnInit()).toBeTruthy();
+  });
 });

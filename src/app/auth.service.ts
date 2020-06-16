@@ -40,19 +40,4 @@ export class AuthService {
 signOut() {
   return this.afAuth.auth.signOut();
 }
-isLoggedIn() {
-  return this.afAuth.authState;
-  
-}
-
- Output() {
-  const user =  this.isLoggedIn()
-  if (user) {
-    console.log('user was logged');
-  } else {
-    console.log('no');
-    return false
- }
-}
-
 }

@@ -61,13 +61,4 @@ describe('AuthService', () => {
     const service: AuthService = TestBed.get(AuthService);
     expect(service.signOut()).toBeTruthy();
   });
-  it('isLoggedIn() should used', () => {
-    const service: AuthService = TestBed.get(AuthService);
-    expect(service.isLoggedIn()).toBe(undefined);
-  });
-  it('Output() should used', () => {
-    const service: AuthService = TestBed.get(AuthService);
-    expect(service.Output()).toBe(false);
-    
-  });
 }); 

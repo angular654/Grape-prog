@@ -8,7 +8,6 @@ import { getMaxListeners } from 'cluster';
 describe('EmailSenderComponent', () => {
   let component: EmailSenderComponent;
   let fixture: ComponentFixture<EmailSenderComponent>;
-  
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [FormsModule],

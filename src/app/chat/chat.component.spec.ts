@@ -7,7 +7,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { AuthService } from '../auth.service';
 import { AngularFireAuth} from '@angular/fire/auth';
 import { CheckFormService } from '../check-form-service.service';
-import {of} from 'rxjs';
+import {of, Observable} from 'rxjs';
 describe('ChatComponent', () => {
   let component: ChatComponent;
   let fixture: ComponentFixture<ChatComponent>;
@@ -34,7 +34,6 @@ describe('ChatComponent', () => {
       };
     }
   } as any;
-
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -64,5 +63,11 @@ describe('ChatComponent', () => {
   });
   it('onSubmit should return true', () => {
     expect(component.onSubmit()).toBe(true);
+  });
+  it('itemValue should defined', () => {
+    expect(component.itemValue).toBe('');
+  });
+  it('auth should be false', () => {
+    expect(component.auth).toBe(false);
   });
 });
