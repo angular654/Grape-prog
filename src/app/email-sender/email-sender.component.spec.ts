@@ -11,10 +11,10 @@ describe('EmailSenderComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [FormsModule],
-      declarations: [ EmailSenderComponent],
+      declarations: [EmailSenderComponent],
       providers: [CheckFormService]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

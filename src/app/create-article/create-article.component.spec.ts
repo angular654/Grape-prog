@@ -5,12 +5,12 @@ import { of } from 'rxjs';
 describe('CreateArticleComponent', () => {
   let component: CreateArticleComponent;
   let db: AngularFireDatabase;
-  beforeEach(() =>{
+  beforeEach(() => {
     db = {
-      list(n:string){
-        return{
+      list(n: string) {
+        return {
           valueChanges: () => of([]),
-          push:(data: any) => {}
+          push: (data: any) => { }
         };
       }
     } as any;
@@ -39,7 +39,7 @@ describe('CreateArticleComponent', () => {
     component = new CreateArticleComponent(db);
     component.article.title = "Title";
     component.article.content = "Some content";
-    component.article.category ="category";
+    component.article.category = "category";
     component.article.refs = "https://grape-proger.000webhostapp.com/";
     expect(component.onSubmit()).toBe(true);
   });

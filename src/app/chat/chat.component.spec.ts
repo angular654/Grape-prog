@@ -5,13 +5,13 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { EmailSenderComponent } from '../email-sender/email-sender.component';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AuthService } from '../auth.service';
-import { AngularFireAuth} from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { CheckFormService } from '../check-form-service.service';
-import {of, Observable} from 'rxjs';
+import { of, Observable } from 'rxjs';
 describe('ChatComponent', () => {
   let component: ChatComponent;
   let fixture: ComponentFixture<ChatComponent>;
-  
+
   const afAuthStub = {
     auth: {
       createUserWithEmailAndPassword(): Promise<void> {
@@ -27,10 +27,10 @@ describe('ChatComponent', () => {
   };
 
   const db = {
-    list(n:string){
-      return{
+    list(n: string) {
+      return {
         valueChanges: () => of([]),
-        push:(data: any) => {}
+        push: (data: any) => { }
       };
     }
   } as any;
@@ -40,13 +40,13 @@ describe('ChatComponent', () => {
         RouterTestingModule,
         FormsModule,
       ],
-      declarations: [ ChatComponent,EmailSenderComponent ],
+      declarations: [ChatComponent, EmailSenderComponent],
       providers: [
-        {provide:AngularFireDatabase, useValue:db},AuthService,{provide:AngularFireAuth,useValue:afAuthStub},
+        { provide: AngularFireDatabase, useValue: db }, AuthService, { provide: AngularFireAuth, useValue: afAuthStub },
         CheckFormService
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

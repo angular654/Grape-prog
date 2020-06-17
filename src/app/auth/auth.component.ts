@@ -13,76 +13,76 @@ export class AuthComponent implements OnInit {
   register = false;
   public version = VERSION.full;
   public reactiveForm: FormGroup = new FormGroup({
-      recaptchaReactive: new FormControl(null, Validators.required)
+    recaptchaReactive: new FormControl(null, Validators.required)
   });
-  constructor(public auth : AuthService, public checkForm: CheckFormService,public router: Router) { }
-  name:string;
-  login:string;
-  email:string;
-  password:string;
+  constructor(public auth: AuthService, public checkForm: CheckFormService, public router: Router) { }
+  name: string;
+  login: string;
+  email: string;
+  password: string;
   ngOnInit() {
   }
   userRegisterClick() {
     const user = {
-      name:this.name,
-      login:this.login,
-      email:this.email,
-      password:this.password
+      name: this.name,
+      login: this.login,
+      email: this.email,
+      password: this.password
     };
-    if (!this.checkForm.checkName(this.name)){
-     alert('Имя не введено');
+    if (!this.checkForm.checkName(this.name)) {
+      alert('Имя не введено');
       this.router.navigate(['reg']);
       return false;
-      }
-    else if (!this.checkForm.checkName(this.login)){
+    }
+    else if (!this.checkForm.checkName(this.login)) {
       alert('Логин не введен');
       this.router.navigate(['reg']);
-        return false;
-      }
-    else if (!this.checkForm.checkName(this.email)){
+      return false;
+    }
+    else if (!this.checkForm.checkName(this.email)) {
       alert('Email не введен');
       this.router.navigate(['reg']);
-        return false;
-      }
-    else if (!this.checkForm.checkName(this.password)){
+      return false;
+    }
+    else if (!this.checkForm.checkName(this.password)) {
       alert('Пароль не введен');
       this.router.navigate(['reg']);
-        return false;
-      }
-      else  if (!this.checkForm.passwordLength(this.password)){
-        alert("Пароль слишком короткий");
-        this.router.navigate(['reg']);
-       return false;
-       }
-    else  if (!this.checkForm.nameLength(this.name)){
+      return false;
+    }
+    else if (!this.checkForm.passwordLength(this.password)) {
+      alert("Пароль слишком короткий");
+      this.router.navigate(['reg']);
+      return false;
+    }
+    else if (!this.checkForm.nameLength(this.name)) {
       alert("Имя слишком короткое");
-       this.router.navigate(['reg']);
-       return false;
-       }
-    else  if (!this.checkForm.loginLength(this.login)){
+      this.router.navigate(['reg']);
+      return false;
+    }
+    else if (!this.checkForm.loginLength(this.login)) {
       alert("Логин слишком короткий");
       this.router.navigate(['reg']);
-       return false;
-       }
-     else  if (!this.checkForm.emailValid(this.email)){
-        alert(" Email неверный");
-        this.router.navigate(['reg']);
-         return false;
-         }
-    else  if (!this.checkForm.emailLength(this.email)){
+      return false;
+    }
+    else if (!this.checkForm.emailValid(this.email)) {
+      alert(" Email неверный");
+      this.router.navigate(['reg']);
+      return false;
+    }
+    else if (!this.checkForm.emailLength(this.email)) {
       alert(" Email слишком короткий");
       this.router.navigate(['reg']);
-       return false;
-       }
-        
+      return false;
+    }
+
     this.auth.registerUser(user);
     this.register = true;
     this.router.navigate(['']);
   }
-  GoogleCheckIn(){
-     this.auth.doGoogleLogin();
-     this.register = true;
-     return true
+  GoogleCheckIn() {
+    this.auth.doGoogleLogin();
+    this.register = true;
+    return true
   }
 
 }

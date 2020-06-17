@@ -13,32 +13,31 @@ import * as moment from 'moment';
 })
 export class ChatComponent implements OnInit {
   itemValue: string = '';
-  user  = '';
+  user = '';
   auth = false;
   msgdate = moment().calendar();
   items: Observable<any[]>;
-  
 
-  constructor(private db : AngularFireDatabase, private af : AuthService){
+
+  constructor(private db: AngularFireDatabase, private af: AuthService) {
     this.items = this.db.list('items').valueChanges();
   }
   ngOnInit() {
-   }
-  onSubmit() {
-     this.db.list('items').push({ content: this.user + '$' + this.itemValue});
-     return true;
   }
-  login()
-  {
-      if(confirm("Вы вошли в чат!"+this.msgdate)){
-            this.af.doGoogleLogin();
-            this.user = this.af.getUser();
-            this.auth = true;
-          } 
-      else {
-        this.auth = false;
-        return false
-      }
+  onSubmit() {
+    this.db.list('items').push({ content: this.user + '$' + this.itemValue });
+    return true;
+  }
+  login() {
+    if (confirm("Вы вошли в чат!" + this.msgdate)) {
+      this.af.doGoogleLogin();
+      this.user = this.af.getUser();
+      this.auth = true;
+    }
+    else {
+      this.auth = false;
+      return false
+    }
 
-    } 
+  }
 }

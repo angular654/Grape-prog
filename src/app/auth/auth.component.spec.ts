@@ -4,8 +4,8 @@ import { AuthComponent } from './auth.component';
 import { FormsModule } from '@angular/forms';
 import { CheckFormService } from '../check-form-service.service';
 import { Router } from '@angular/router';
-import { AngularFireAuth} from '@angular/fire/auth';
- 
+import { AngularFireAuth } from '@angular/fire/auth';
+
 describe('AuthComponent', () => {
   let component: AuthComponent;
   let fixture: ComponentFixture<AuthComponent>;
@@ -26,11 +26,11 @@ describe('AuthComponent', () => {
     TestBed.configureTestingModule({
       imports: [FormsModule],
       declarations: [AuthComponent],
-      providers: [AngularFireAuth,{provide:AuthService, useValue:afAuthStub},CheckFormService,
-        {provide:Router,useClass: class { navigate = jasmine.createSpy("navigate");}}
+      providers: [AngularFireAuth, { provide: AuthService, useValue: afAuthStub }, CheckFormService,
+        { provide: Router, useClass: class { navigate = jasmine.createSpy("navigate"); } }
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -8,13 +8,13 @@ import { AuthComponent } from '../auth/auth.component';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private af : AuthService, public ac : AuthComponent) {
-   }
-  ngOnInit() { 
+  constructor(private af: AuthService, public ac: AuthComponent) {
   }
-  logout(){
-     this.af.signOut();
-     this.ac.register  = false;
-     return this.ac.register 
+  ngOnInit() {
+  }
+  logout() {
+    this.af.signOut();
+    this.ac.register = false;
+    return this.ac.register
   }
 }
