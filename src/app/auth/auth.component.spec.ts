@@ -33,6 +33,9 @@ describe('AuthComponent', () => {
         return new Promise<any>(resolve => resolve());
       }
     } as any
+    component ={
+      userRegisterClick: () => false
+    } as any
   });
 
   it('should create', () => {
@@ -248,7 +251,7 @@ describe('AuthComponent', () => {
     spyOn(check, 'loginLength').and.returnValue(true);
     spyOn(check, 'checkEmail').and.returnValue(true);
     spyOn(check, 'emailValid').and.returnValue(true);
-
+    spyOn(component, 'userRegisterClick').and.returnValue(true);
     component = new AuthComponent(auths, check, router);
     component.name = 'dsfsasdfssd';
     component.login = 'ssdssssdsds';
