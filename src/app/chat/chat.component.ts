@@ -29,8 +29,8 @@ export class ChatComponent implements OnInit {
     return true;
   }
   login() {
-      this.af.doGoogleLogin();
-      this.user = this.af.getUser();
-      this.auth = true;
+    this.af.doGoogleLogin();
+    this.user = this.af.getUser();
+    this.auth = true;
   }
 }

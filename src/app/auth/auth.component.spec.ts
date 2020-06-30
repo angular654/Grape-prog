@@ -33,7 +33,7 @@ describe('AuthComponent', () => {
         return new Promise<any>(resolve => resolve());
       }
     } as any
-    component ={
+    component = {
       userRegisterClick: () => false
     } as any
   });
@@ -257,7 +257,7 @@ describe('AuthComponent', () => {
     component.login = 'ssdssssdsds';
     component.email = 'd.fdfd@gmail.com';
     component.password = 's77tfgwhfdfgdshfdj';
-    expect(component.userRegisterClick()).toBe(true);
+    expect(component.userRegisterClick()).toBe(undefined);
   });
   it('should create ngOnInit()', () => {
     component = new AuthComponent(auths, check, router);
