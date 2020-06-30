@@ -252,6 +252,7 @@ describe('AuthComponent', () => {
     spyOn(check, 'checkEmail').and.returnValue(true);
     spyOn(check, 'emailValid').and.returnValue(true);
     spyOn(component, 'userRegisterClick').and.returnValue(true);
+    
     component = new AuthComponent(auths, check, router);
     component.name = 'dsfsasdfssd';
     component.login = 'ssdssssdsds';

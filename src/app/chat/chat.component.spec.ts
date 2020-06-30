@@ -53,4 +53,9 @@ describe('ChatComponent', () => {
     component =  new ChatComponent(db,af);
     expect(component.ngOnInit()).toBe(undefined);
   });
+  it('component.auth should be true', () => {
+    component =  new ChatComponent(db,af);
+    component.auth = true;
+    expect(component.auth).toBe(true);
+  });
 });
