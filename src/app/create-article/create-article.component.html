@@ -1,0 +1,55 @@
+<div id="content">
+<div *ngIf="submitted;" style="width: 300px;">
+  <form (ngSubmit)="onSubmit()"  action="https://formspree.io/v.ivhanenko04@gmail.com" method="POST" >
+    <div class="form-group">
+      <h3>Создать статью</h3>
+      <label for="title" maxlength="30">Заголовок</label>
+      <input type="text" class="form-control" id="title" required [(ngModel)]="article.title" name="title">
+    </div>
+ 
+    <div class="form-group">
+      <label for="category">Категория</label>
+      <input type="text" class="form-control" id="category" required [(ngModel)]="article.category" name="category" maxlength="15"> 
+    </div>
+
+    <div class="form-group">
+        <label for=" title">Изображение</label>
+        <input type="text" class="form-control" id="image" required [(ngModel)]="article.image" name="image">
+      </div>
+
+      <div class="form-group">
+        <label for="content" >Содержание</label>
+        <textarea type="text" class="form-control" id="content" required [(ngModel)]="article.content" name="content" ></textarea>
+      </div>
+      <div class="form-group">
+        <label for="content" >Ссылка</label>
+        <input type="text" class="form-control" id="refs" required [(ngModel)]="article.refs" name="refs" >
+      </div>
+ 
+    <button type="submit" >Отправить</button>
+    <button  (click)="checkArticle()">Поcмотреть статьи</button>
+  </form>
+</div>
+ 
+<div *ngIf="!submitted" id="TheBox">
+  <h4>Опубликованные статьи</h4>
+  <button   (click)="createArticle()">Создать статью</button>
+  <hr>
+  <div  class="container-fluid" *ngFor="let article of articleContent | async">
+    <div class="card">
+      <h1 class='card-title'>
+        {{article.content.split('🍇')[0]}}
+    </h1>
+    <div id='cat'>{{article.content.split('🍇')[1]}}</div>
+    <img src="assets/grape.PNG">
+    <div class="card-text">{{article.content.split('🍇')[2]}}</div>
+    <h1 id="ref">Полезные ссылки: </h1>
+    <h3>
+      <a href="{{article.content.split('🍇')[4]}}">{{article.content.split('🍇')[4]}}</a>
+    </h3>
+    <b>Дата публикации : {{article.content.split('🍇')[3]}}</b>
+  </div>
+  <br>
+  </div>
+</div>
+</div>

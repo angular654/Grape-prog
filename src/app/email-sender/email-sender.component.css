@@ -1,0 +1,43 @@
+.Sender{
+    padding-left: 40%;
+    position:absolute;
+    display: ruby;
+    left: 50%;
+    margin-left: -150px;
+}
+@media screen and (max-width: 1050px){
+  .Sender {
+    display:none;
+  }
+}
+.dropzone { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+    min-width: 80vw;
+    font-weight: 200;
+    height: 300px;
+    border: 2px dashed #f16624;
+    border-radius: 5px;
+    background: white;
+    margin: 10px 0;
+}
+  
+  progress::-webkit-progress-value {
+    transition: width 0.1s ease;
+  }
+.card-header{
+  color : rgb(97, 36, 153);
+  height: 40px;
+  font-size: medium;
+}
+.card{
+  width: fit-content;
+}
+#btn{
+  padding-right: 20px;
+  background-color : rgb(97, 36, 153);
+  color:white;
+  padding-left: 20px;
+}

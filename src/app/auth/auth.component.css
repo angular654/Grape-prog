@@ -1,0 +1,26 @@
+.reg{
+    padding-left: 8%;
+    height: 1000px;
+}
+input{
+    width: 300px;
+}
+button{
+    color:#45175f;
+    padding: 10px 20px;
+    width:100px;
+    text-decoration:none;
+    margin:20px auto;
+    background-image: linear-gradient(to left,transparent,transparent 50%,#8c00ff 50%,#570785);
+    background-position: 100% 0;
+    background-size: 200% 100%;
+    transition: all .25s ease-in;
+    font: 400 18px tahoma;
+    border: 1px solid #570785;
+    background-color: white;
+    border-radius: 5px;
+   }
+  button:hover {
+   background-position: 0 0;
+   color:#fff;
+   }

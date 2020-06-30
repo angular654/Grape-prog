@@ -1,0 +1,37 @@
+
+<div id="chat">
+  <div id="preview" *ngIf="!auth">
+    <h2 id="title">🍇🍇Chat🍇🍇</h2>
+    <button  id="login_btn" (click)="login()">Login with Google</button>
+    <div class="example-boundary">
+    <div class="example-box" cdkDragBoundary=".example-boundary" cdkDrag>
+      <app-email-sender></app-email-sender>
+    </div>
+    </div>
+  </div>
+<div *ngIf="auth" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+  <h2 id="title"> Grapeprog Chat</h2>
+  <div  id="chatfield">
+  <div class="col-md-3" *ngFor="let item of items | async"  class="example-box"  >
+    <p  class="badge badge-secondary"  id="chatUsers" >{{item.content.split('$')[0]}}</p>
+    <textarea readonly id="content">{{item.content.split('$')[1]}}</textarea>
+  </div>
+ 
+</div>
+
+<div class="container-fluid">
+  <div>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input type="text" class="form-control"
+          placeholder="Enter message" id="item"
+          required [(ngModel)]="itemValue" name="item">
+      </div>
+    </form> 
+  </div>
+</div>
+</div>
+</div>
+
+
+

@@ -1,0 +1,113 @@
+#chat {
+  overflow: hidden;
+  background-color: rgb(82, 24, 82);
+  border-radius: 5px;
+  background-image: none;
+  width: auto;
+  color: white;
+}
+@media screen and (min-width: 700px){
+  #chat {
+      width: 700px;
+      height: 80;
+      text-align: left;
+      padding-left: 20px;
+      background-image: url(src/assets/grape.png);
+  }
+  #title{
+    text-align: center;
+    color: white;
+    background-color: rgb(97, 36, 153);
+  }
+  .form-group{
+    background-image: none;
+  }
+}
+
+@media screen and (max-width: 700px){
+  #chat {
+    width: auto;
+    background-color:  rgb(97, 36, 153);
+  }
+}
+
+#emSender {
+  padding-left: 40%;
+  padding-right: 100%;
+  display: none ;
+  width: 50px;
+  height: auto;
+}
+
+input{
+  padding-top: 4px;
+  width: 250px;
+
+}
+textarea{
+  height: auto;
+  width: auto; 
+}
+
+
+.example-boundary {
+  width: 300px;
+  height: 90%;
+  max-width: 100%;
+  
+}
+
+#chatUsers {
+  padding-right: 10px;
+  align-items: left;
+  display: inline-block;
+}
+
+#content {
+  font-size: large;
+
+}
+#chatfield{
+  height: 440px;
+  width: auto;
+  overflow: auto;
+  padding-left: 10px;
+}
+.example-boundary{
+  padding-left: 42px;
+  width: 90%;
+  height: auto;
+}
+
+#chatUsers{
+  background-color: blueviolet;
+}
+
+#login_btn{
+  background-color: #9f0cc4;
+  color:white
+}
+#preview{
+  background-color:  rgb(97, 36, 153);
+  text-align: center;
+  border-radius: 10px;
+}
+button{
+  color:#45175f;
+  padding: 10px 20px;
+  width:200px;
+  text-decoration:none;
+  margin:20px auto;
+  background-image: linear-gradient(to left,transparent,transparent 50%,#8c00ff 50%,#570785);
+  background-position: 100% 0;
+  background-size: 200% 100%;
+  transition: all .25s ease-in;
+  font: 400 18px tahoma;
+  border: 3px solid #570785;
+  background-color: white;
+  border-radius: 5px;
+ }
+button:hover {
+ background-position: 0 0;
+ color:#fff;
+ }

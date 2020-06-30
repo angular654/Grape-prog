@@ -1,0 +1,73 @@
+#content{
+    display: flex;
+    align-items: center;
+}
+#tt{
+    border-radius: 5px;
+}
+#cat{
+    color:white;
+    font-size: large;
+    background-color: blueviolet;
+    border-radius: 7px;
+    width: 160px;
+    text-align: center;
+}
+#ref{
+    color:white;
+    font-size: large;
+    background-color: rgb(87, 33, 138);
+    border-radius: 7px;
+    width: 160px;
+    text-align: center;
+}
+#cont{
+    font-size: medium;
+    color: rgb(41, 17, 63);
+}
+#TheBox{
+    width: 100%;
+    height: 1000px;
+    overflow: scroll;
+}
+.arts{
+    width:auto;
+    height:auto;
+    image-orientation: initial;
+}
+a {
+    color: rgb(146, 51, 235); 
+    font-size: medium;
+    text-decoration: none;
+}
+a:hover{
+    color: rgb(96, 42, 146);
+}
+img{
+  width:60px;
+  height: 50px;
+  border-radius: 100px;
+  position: absolute;
+}
+.card-title{
+    padding-left:60px;
+}
+button{
+    color:#45175f;
+    padding: 10px 20px;
+    width: 200px;
+    text-decoration:none;
+    margin:5px auto;
+    background-image: linear-gradient(to left,transparent,transparent 50%,#8c00ff 50%,#570785);
+    background-position: 100% 0;
+    background-size: 200% 100%;
+    transition: all .25s ease-in;
+    font: 400 18px tahoma;
+    border: 1px solid #570785;
+    background-color: white;
+    border-radius: 5px;
+}
+button:hover{
+    background-position: 0 0;
+     color:#fff;
+}
