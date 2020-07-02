@@ -1,14 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ChatComponent } from './chat.component';
-import { FormsModule } from '@angular/forms';
-import { RouterTestingModule } from '@angular/router/testing';
-import { EmailSenderComponent } from '../email-sender/email-sender.component';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AuthService } from '../auth.service';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { CheckFormService } from '../check-form-service.service';
-import { of, Observable } from 'rxjs';
-import { getMultipleValuesInSingleSelectionError } from '@angular/cdk/collections';
+import { of } from 'rxjs';
 describe('ChatComponent', () => {
   let component: ChatComponent;
   let db: AngularFireDatabase;

@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { CheckFormService } from './check-form-service.service';
 
 describe('CheckFormServiceService', () => {
