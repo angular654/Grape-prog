@@ -123,12 +123,12 @@ describe('AuthComponent', () => {
     expect(component.userRegisterClick()).toBe(false);
   });
   it('userRegisterClick() should return false', () => {
-    spyOn(check, 'checkName').and.returnValue(false);
-    spyOn(check, 'checkPassword').and.returnValue(true);
-    spyOn(check, 'passwordLength').and.returnValue(true);
+    spyOn(check, 'checkName').and.returnValue(true);
+    spyOn(check, 'checkPassword').and.returnValue(false);
+    spyOn(check, 'passwordLength').and.returnValue(false);
     spyOn(check, 'nameLength').and.returnValue(true);
     spyOn(check, 'checkLogin').and.returnValue(true);
-    spyOn(check, 'loginLength').and.returnValue(true);
+    spyOn(check, 'loginLength').and.returnValue(false);
     spyOn(check, 'checkEmail').and.returnValue(true);
     spyOn(check, 'emailValid').and.returnValue(true);
 
