@@ -30,16 +30,10 @@ export class CheckFormService {
       return true;
   }
   nameLength(name){
-    if (name.length < 3)
-      return false;
-      else
-      return true;
+    return name.length >= 3;
   }
   loginLength(login){
-    if (login.length < 4)
-      return false;
-      else
-      return true;
+    return login.length >= 4;
   }
   emailValid(email){
     if (!/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/gi.test(email))
@@ -48,9 +42,6 @@ export class CheckFormService {
       return true;
   }
   passwordLength(password){
-    if (password.length < 11)
-      return false;
-      else
-      return true;
+    return password.length >= 11;
   }
 }
