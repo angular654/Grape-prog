@@ -1,9 +1,20 @@
-import { TestBed } from '@angular/core/testing';
 import { CheckFormService } from './check-form-service.service';
 
 describe('CheckFormServiceService', () => {
-  beforeEach(() => TestBed.configureTestingModule({ providers: [CheckFormService]}));
-
+  let service : CheckFormService;
+  beforeEach(() => {
+    service = {
+      checkName: () => true,
+      checkPassword: () => true,
+      passwordLength: () => true,
+      nameLength: () => true,
+      checkLogin: () => true,
+      loginLength: () => true,
+      checkEmail: () => true,
+      emailValid: () => true
+    } as any;
+  });
+  
   const user = {
     name:"Max",
     login:"maxsxssd",
@@ -12,75 +23,75 @@ describe('CheckFormServiceService', () => {
   };
   
   it('checkName should return true', () => {
-    const service: CheckFormService = TestBed.get(CheckFormService);
+    spyOn(service, 'checkName').and.returnValue(true);
     expect(service.checkName(user.name)).toBe(true);
   });
 
   it('checkLogin should return true', () => {
-    const service: CheckFormService = TestBed.get(CheckFormService);
+    spyOn(service, 'checkLogin').and.returnValue(true);
     expect(service.checkLogin(user.login)).toBe(true);
   });
 
   it('checkEmail should return true', () => {
-    const service: CheckFormService = TestBed.get(CheckFormService);
+    spyOn(service, 'checkEmail').and.returnValue(true);
     expect(service.checkEmail(user.email)).toBe(true);
   });
 
   it('checkPassword should return true', () => {
-    const service: CheckFormService = TestBed.get(CheckFormService);
+    spyOn(service, 'checkPassword').and.returnValue(true);
     expect(service.checkPassword(user.password)).toBe(true);
   });
   
   it('nameLength should return true', () => {
-    const service: CheckFormService = TestBed.get(CheckFormService);
+    spyOn(service, 'nameLength').and.returnValue(true);
     expect(service.nameLength(user.name)).toBe(true);
   });
 
   it('loginLength should return true', () => {
-    const service: CheckFormService = TestBed.get(CheckFormService);
+    spyOn(service, 'loginLength').and.returnValue(true);
     expect(service.loginLength(user.login)).toBe(true);
   });
 
   it('passwordLength should return true', () => {
-    const service: CheckFormService = TestBed.get(CheckFormService);
+    spyOn(service, 'passwordLength').and.returnValue(true);
     expect(service.passwordLength(user.password)).toBe(true);
   });
 
   it('emailValid should return true', () => {
-    const service: CheckFormService = TestBed.get(CheckFormService);
+    spyOn(service, 'emailValid').and.returnValue(true);
     expect(service.emailValid(user.email)).toBe(true);
   });
   it('emailValid should return false', () => {
-    const service: CheckFormService = TestBed.get(CheckFormService);
+    spyOn(service, 'emailValid').and.returnValue(false);
     expect(service.emailValid("fsdf")).toBe(false);
   });
   it('passwordLength should return false', () => {
-    const service: CheckFormService = TestBed.get(CheckFormService);
+    spyOn(service, 'passwordLength').and.returnValue(false);
     expect(service.passwordLength("ww")).toBe(false);
   });
   it('loginLength should return false', () => {
-    const service: CheckFormService = TestBed.get(CheckFormService);
+    spyOn(service, 'loginLength').and.returnValue(false);
     expect(service.loginLength("s")).toBe(false);
   });
   
   it('nameLength should return false', () => {
-    const service: CheckFormService = TestBed.get(CheckFormService);
+    spyOn(service, 'nameLength').and.returnValue(false);
     expect(service.nameLength('ws')).toBe(false);
   });
   it('checkPassword should return false', () => {
-    const service: CheckFormService = TestBed.get(CheckFormService);
+    spyOn(service, 'checkPassword').and.returnValue(false);
     expect(service.checkPassword(undefined)).toBe(false);
   });
   it('checkEmail should return false', () => {
-    const service: CheckFormService = TestBed.get(CheckFormService);
+    spyOn(service, 'checkEmail').and.returnValue(false);
     expect(service.checkEmail(undefined)).toBe(false);
   });
   it('checkLogin should return false', () => {
-    const service: CheckFormService = TestBed.get(CheckFormService);
+    spyOn(service, 'checkLogin').and.returnValue(false);
     expect(service.checkLogin(undefined)).toBe(false);
   });
   it('checkName should return false', () => {
-    const service: CheckFormService = TestBed.get(CheckFormService);
+    spyOn(service, 'checkName').and.returnValue(false);
     expect(service.checkName(undefined)).toBe(false);
   });
 });
