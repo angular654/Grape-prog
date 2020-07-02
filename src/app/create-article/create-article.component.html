@@ -14,9 +14,8 @@
 
     <div class="form-group">
         <label for=" title">Изображение</label>
-        <input type="text" class="form-control" id="image" required [(ngModel)]="article.image" name="image">
+        <input type="file" class="file-input" id="image" required [(ngModel)]="article.image" name="image">
       </div>
-
       <div class="form-group">
         <label for="content" >Содержание</label>
         <textarea type="text" class="form-control" id="content" required [(ngModel)]="article.content" name="content" ></textarea>
