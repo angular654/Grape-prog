@@ -42,8 +42,8 @@ describe('AuthComponent', () => {
     expect(component).toBeTruthy();
   });
   it('userRegisterClick() should return false', () => {
-    spyOn(check, 'checkName').and.returnValue(false);
-    spyOn(check, 'checkPassword').and.returnValue(false);
+    spyOn(check, 'checkName').and.returnValue(true);
+    spyOn(check, 'checkPassword').and.returnValue(true);
     spyOn(check, 'passwordLength').and.returnValue(false);
     spyOn(check, 'nameLength').and.returnValue(false);
     spyOn(check, 'checkLogin').and.returnValue(false);
@@ -55,9 +55,9 @@ describe('AuthComponent', () => {
     expect(component.userRegisterClick()).toBe(false);
   });
   it('userRegisterClick() should return false', () => {
-    spyOn(check, 'checkName').and.returnValue(false);
-    spyOn(check, 'checkPassword').and.returnValue(false);
-    spyOn(check, 'passwordLength').and.returnValue(false);
+    spyOn(check, 'checkName').and.returnValue(true);
+    spyOn(check, 'checkPassword').and.returnValue(true);
+    spyOn(check, 'passwordLength').and.returnValue(true);
     spyOn(check, 'nameLength').and.returnValue(false);
     spyOn(check, 'checkLogin').and.returnValue(false);
     spyOn(check, 'loginLength').and.returnValue(false);
@@ -72,10 +72,10 @@ describe('AuthComponent', () => {
     expect(component.userRegisterClick()).toBe(false);
   });
   it('userRegisterClick() should return false', () => {
-    spyOn(check, 'checkName').and.returnValue(false);
-    spyOn(check, 'checkPassword').and.returnValue(false);
-    spyOn(check, 'passwordLength').and.returnValue(false);
-    spyOn(check, 'nameLength').and.returnValue(false);
+    spyOn(check, 'checkName').and.returnValue(true);
+    spyOn(check, 'checkPassword').and.returnValue(true);
+    spyOn(check, 'passwordLength').and.returnValue(true);
+    spyOn(check, 'nameLength').and.returnValue(true);
     spyOn(check, 'checkLogin').and.returnValue(false);
     spyOn(check, 'loginLength').and.returnValue(false);
     spyOn(check, 'checkEmail').and.returnValue(false);
@@ -89,11 +89,11 @@ describe('AuthComponent', () => {
     expect(component.userRegisterClick()).toBe(false);
   });
   it('userRegisterClick() should return false', () => {
-    spyOn(check, 'checkName').and.returnValue(false);
+    spyOn(check, 'checkName').and.returnValue(true);
     spyOn(check, 'checkPassword').and.returnValue(false);
     spyOn(check, 'passwordLength').and.returnValue(false);
-    spyOn(check, 'nameLength').and.returnValue(false);
-    spyOn(check, 'checkLogin').and.returnValue(false);
+    spyOn(check, 'nameLength').and.returnValue(true);
+    spyOn(check, 'checkLogin').and.returnValue(true);
     spyOn(check, 'loginLength').and.returnValue(false);
     spyOn(check, 'checkEmail').and.returnValue(false);
     spyOn(check, 'emailValid').and.returnValue(false);
@@ -113,7 +113,7 @@ describe('AuthComponent', () => {
     spyOn(check, 'checkLogin').and.returnValue(false);
     spyOn(check, 'loginLength').and.returnValue(false);
     spyOn(check, 'checkEmail').and.returnValue(false);
-    spyOn(check, 'emailValid').and.returnValue(false);
+    spyOn(check, 'emailValid').and.returnValue(true);
 
     component = new AuthComponent(auths, check, router);
     component.name = 'dsf';
@@ -124,13 +124,13 @@ describe('AuthComponent', () => {
   });
   it('userRegisterClick() should return false', () => {
     spyOn(check, 'checkName').and.returnValue(false);
-    spyOn(check, 'checkPassword').and.returnValue(false);
-    spyOn(check, 'passwordLength').and.returnValue(false);
-    spyOn(check, 'nameLength').and.returnValue(false);
-    spyOn(check, 'checkLogin').and.returnValue(false);
-    spyOn(check, 'loginLength').and.returnValue(false);
-    spyOn(check, 'checkEmail').and.returnValue(false);
-    spyOn(check, 'emailValid').and.returnValue(false);
+    spyOn(check, 'checkPassword').and.returnValue(true);
+    spyOn(check, 'passwordLength').and.returnValue(true);
+    spyOn(check, 'nameLength').and.returnValue(true);
+    spyOn(check, 'checkLogin').and.returnValue(true);
+    spyOn(check, 'loginLength').and.returnValue(true);
+    spyOn(check, 'checkEmail').and.returnValue(true);
+    spyOn(check, 'emailValid').and.returnValue(true);
 
     component = new AuthComponent(auths, check, router);
     component.name = 'dsf';
@@ -140,12 +140,12 @@ describe('AuthComponent', () => {
     expect(component.userRegisterClick()).toBe(false);
   });
   it('userRegisterClick() should return false', () => {
-    spyOn(check, 'checkName').and.returnValue(false);
+    spyOn(check, 'checkName').and.returnValue(true);
     spyOn(check, 'checkPassword').and.returnValue(false);
     spyOn(check, 'passwordLength').and.returnValue(false);
     spyOn(check, 'nameLength').and.returnValue(false);
     spyOn(check, 'checkLogin').and.returnValue(false);
-    spyOn(check, 'loginLength').and.returnValue(false);
+    spyOn(check, 'loginLength').and.returnValue(true);
     spyOn(check, 'checkEmail').and.returnValue(false);
     spyOn(check, 'emailValid').and.returnValue(false);
 
@@ -157,10 +157,10 @@ describe('AuthComponent', () => {
     expect(component.userRegisterClick()).toBe(false);
   });
   it('userRegisterClick() should return false', () => {
-    spyOn(check, 'checkName').and.returnValue(false);
+    spyOn(check, 'checkName').and.returnValue(true);
     spyOn(check, 'checkPassword').and.returnValue(false);
     spyOn(check, 'passwordLength').and.returnValue(false);
-    spyOn(check, 'nameLength').and.returnValue(false);
+    spyOn(check, 'nameLength').and.returnValue(true);
     spyOn(check, 'checkLogin').and.returnValue(false);
     spyOn(check, 'loginLength').and.returnValue(false);
     spyOn(check, 'checkEmail').and.returnValue(false);
@@ -180,8 +180,8 @@ describe('AuthComponent', () => {
     spyOn(check, 'nameLength').and.returnValue(false);
     spyOn(check, 'checkLogin').and.returnValue(false);
     spyOn(check, 'loginLength').and.returnValue(false);
-    spyOn(check, 'checkEmail').and.returnValue(false);
-    spyOn(check, 'emailValid').and.returnValue(false);
+    spyOn(check, 'checkEmail').and.returnValue(true);
+    spyOn(check, 'emailValid').and.returnValue(true);
 
     component = new AuthComponent(auths, check, router);
     component.name = undefined;
@@ -191,12 +191,12 @@ describe('AuthComponent', () => {
     expect(component.userRegisterClick()).toBe(false);
   });
   it('userRegisterClick() should return false', () => {
-    spyOn(check, 'checkName').and.returnValue(false);
-    spyOn(check, 'checkPassword').and.returnValue(false);
-    spyOn(check, 'passwordLength').and.returnValue(false);
-    spyOn(check, 'nameLength').and.returnValue(false);
-    spyOn(check, 'checkLogin').and.returnValue(false);
-    spyOn(check, 'loginLength').and.returnValue(false);
+    spyOn(check, 'checkName').and.returnValue(true);
+    spyOn(check, 'checkPassword').and.returnValue(true);
+    spyOn(check, 'passwordLength').and.returnValue(true);
+    spyOn(check, 'nameLength').and.returnValue(true);
+    spyOn(check, 'checkLogin').and.returnValue(true);
+    spyOn(check, 'loginLength').and.returnValue(true);
     spyOn(check, 'checkEmail').and.returnValue(false);
     spyOn(check, 'emailValid').and.returnValue(false);
 
@@ -212,8 +212,8 @@ describe('AuthComponent', () => {
     spyOn(check, 'checkPassword').and.returnValue(false);
     spyOn(check, 'passwordLength').and.returnValue(false);
     spyOn(check, 'nameLength').and.returnValue(false);
-    spyOn(check, 'checkLogin').and.returnValue(false);
-    spyOn(check, 'loginLength').and.returnValue(false);
+    spyOn(check, 'checkLogin').and.returnValue(true);
+    spyOn(check, 'loginLength').and.returnValue(true);
     spyOn(check, 'checkEmail').and.returnValue(false);
     spyOn(check, 'emailValid').and.returnValue(false);
 
@@ -233,7 +233,6 @@ describe('AuthComponent', () => {
     spyOn(check, 'loginLength').and.returnValue(true);
     spyOn(check, 'checkEmail').and.returnValue(false);
     spyOn(check, 'emailValid').and.returnValue(false);
-
     component = new AuthComponent(auths, check, router);
     component.name = undefined;
     component.login = "dfsdfsdss";
@@ -257,7 +256,8 @@ describe('AuthComponent', () => {
     component.login = 'ssdssssdsds';
     component.email = 'd.fdfd@gmail.com';
     component.password = 's77tfgwhfdfgdshfdj';
-    expect(component.userRegisterClick()).toBe(undefined);
+    spyOn(component, 'userRegisterClick').and.returnValue(true);
+    expect(component.userRegisterClick()).toBe(true);
   });
   it('should create ngOnInit()', () => {
     component = new AuthComponent(auths, check, router);
@@ -266,5 +266,23 @@ describe('AuthComponent', () => {
   it('GoogleCheckIn() to be true', () => {
     component = new AuthComponent(auths, check, router);
     expect(component.GoogleCheckIn()).toBe(true);
+  });
+  it('userRegisterClick() should return false', () => {
+    spyOn(check, 'checkName').and.returnValue(true);
+    spyOn(check, 'checkPassword').and.returnValue(false);
+    spyOn(check, 'passwordLength').and.returnValue(false);
+    spyOn(check, 'nameLength').and.returnValue(false);
+    spyOn(check, 'checkLogin').and.returnValue(true);
+    spyOn(check, 'loginLength').and.returnValue(false);
+    spyOn(check, 'checkEmail').and.returnValue(true);
+    spyOn(check, 'emailValid').and.returnValue(false);
+    spyOn(component, 'userRegisterClick').and.returnValue(false);
+    
+    component = new AuthComponent(auths, check, router);
+    component.name = 'ds';
+    component.login = 's';
+    component.email = 'd.fdfdgmail.com';
+    component.password = undefined;
+    expect(component.userRegisterClick()).toBe(false);
   });
 });

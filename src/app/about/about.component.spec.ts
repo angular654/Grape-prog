@@ -6,7 +6,7 @@ describe('AboutComponent', () => {
 
   });
 
-  it('should create', () => {
+  it('component should create', () => {
     expect(component).toBe(undefined);
   });
 });
