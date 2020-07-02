@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
 import { Article } from '../home/article';
 import * as moment from 'moment';
 @Component({
@@ -9,6 +10,12 @@ import * as moment from 'moment';
   styleUrls: ['./create-article.component.css']
 })
 export class CreateArticleComponent implements OnInit {
+  // for file upload
+  task: AngularFireUploadTask;
+  percentage: Observable<number>;
+  snapshot: Observable<any>;
+  downloadURL: string;
+
   article: Article = new Article();
   articleContent: Observable<any[]>;
   submitted: boolean = false;
@@ -33,11 +40,13 @@ export class CreateArticleComponent implements OnInit {
       return false;
     } else {
       this.msgdate = moment().format('LLL');
-      this.db.list('artContent').push({ content: this.article.title + '🍇' + this.article.category + '🍇' + this.article.content + '🍇' + this.msgdate + '🍇' + this.article.refs });
+      this.db.list('artContent').push({ content: this.article.title + '🍇' + this.article.category + '🍇' + this.article.content + '🍇' + this.msgdate + '🍇' + this.article.refs + '🍇' +  this.article.image});
       alert('Статья опубликована');
-      this.article.title = this.article.category = this.article.content = this.article.refs = undefined;
+      this.article.title = this.article.category = this.article.content = this.article.refs = this.article.image = undefined;
       console.log('%c You create article🍇', 'font-size: 36px; font-weight: bold');
       return true;
     }
+  }
+  imageUpload(path){
   }
 }
