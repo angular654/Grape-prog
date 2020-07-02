@@ -5,31 +5,31 @@ export class CheckFormService {
 
   constructor() { }
 
-  checkName(name){
+  checkName(name) {
     return name != undefined
   }
-  checkLogin(login){
+  checkLogin(login) {
     return login != undefined
   }
-  checkEmail(email){
+  checkEmail(email) {
     return email != undefined
   }
-  checkPassword(password){
+  checkPassword(password) {
     return password != undefined
   }
-  nameLength(name){
+  nameLength(name) {
     return name.length >= 3;
   }
-  loginLength(login){
+  loginLength(login) {
     return login.length >= 4;
   }
-  emailValid(email){
+  emailValid(email) {
     if (!/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/gi.test(email))
       return false;
-      else
+    else
       return true;
   }
-  passwordLength(password){
+  passwordLength(password) {
     return password.length >= 11;
   }
 }
