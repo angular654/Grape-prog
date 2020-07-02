@@ -6,28 +6,16 @@ export class CheckFormService {
   constructor() { }
 
   checkName(name){
-    if (name == undefined)
-      return false;
-      else
-      return true;
+    return name != undefined
   }
   checkLogin(login){
-    if (login == undefined)
-      return false;
-      else
-      return true;
+    return login != undefined
   }
   checkEmail(email){
-    if (email == undefined)
-      return false;
-      else
-      return true;
+    return email != undefined
   }
   checkPassword(password){
-    if (password == undefined)
-      return false;
-      else
-      return true;
+    return password != undefined
   }
   nameLength(name){
     return name.length >= 3;
