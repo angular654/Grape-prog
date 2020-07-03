@@ -5,6 +5,7 @@ import { AngularFireModule } from '@angular/fire';
 import { RouterModule, Routes } from '@angular/router';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestore'; 
+import { AngularFireStorage } from '@angular/fire/storage';
 import { FirestoreSettingsToken } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';  
 import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
@@ -73,7 +74,7 @@ const firebaseConfig = {
     PickerModule,
     EmojiModule
   ],
-  providers: [AuthService,{ provide: FirestoreSettingsToken, useValue: {} },CheckFormService,AuthComponent,AngularFireAuthModule, AngularFireDatabaseModule,{
+  providers: [AuthService,{ provide: FirestoreSettingsToken, useValue: {} },CheckFormService,AuthComponent,AngularFireAuthModule, AngularFireStorage,AngularFireDatabaseModule,{
     provide: RECAPTCHA_SETTINGS,
     useValue: {
       siteKey: '6LfKSewUAAAAAHMBK4RekHHohgt0OPZycXxHJ_i9',
