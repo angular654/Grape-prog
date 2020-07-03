@@ -4,7 +4,6 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { Article } from '../home/article';
 import { ImageUpload } from './Image';
 import { UploadImageService } from '../upload-image.service';
-import {map} from 'rxjs/operators'
 
 import * as moment from 'moment';
 @Component({
@@ -20,6 +19,7 @@ export class CreateArticleComponent implements OnInit {
   article: Article = new Article();
   image: ImageUpload;
   articleContent: Observable<any[]>;
+  imagesContent: Observable<any[]>;
   submitted: boolean = false;
   msgdate: any;
   fileUploads: any[];
@@ -28,7 +28,8 @@ export class CreateArticleComponent implements OnInit {
   constructor(public db: AngularFireDatabase, private uploadService: UploadImageService) {
   }
   ngOnInit() {
-    return this.articleContent = this.db.list('artContent').valueChanges();
+    this.imagesContent = this.db.list('images').valueChanges();  
+    return this.articleContent = this.db.list('artContent').valueChanges();   
   }
   createArticle() {
     console.clear();
@@ -45,10 +46,10 @@ export class CreateArticleComponent implements OnInit {
       return false;
     } else {
       this.msgdate = moment().format('LLL');
-      this.imgUrl = this.article.image
+      this.upload()
+      this.article.image = 'https://firebasestorage.googleapis.com/v0/b/grapeprogchatapp.appspot.com/o/images%2Fangular.png?alt=media&token=a8be3594-0949-47b2-b2cf-89a070bf452b';
       this.db.list('artContent').push({ content: this.article.title + '🍇' + this.article.category + '🍇' + this.article.content + '🍇' + this.msgdate + '🍇' + this.article.refs + '🍇' +  this.article.image});
       alert('Статья опубликована');
-      this.upload()
       this.article.title = this.article.category = this.article.content = this.article.refs = this.article.image = undefined;
       console.log('%c You create article🍇', 'font-size: 36px; font-weight: bold');
       return true;
@@ -57,17 +58,17 @@ export class CreateArticleComponent implements OnInit {
   selectFile(event) {
     this.selectedFiles = event.target.files;
   }
- 
+
   upload() {
     const file = this.selectedFiles.item(0);
     this.selectedFiles = undefined;
- 
+
     this.currentFileUpload = new ImageUpload(file);
     this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(
       error => {
         console.log(error);
       }
     );
-    this.imgUrl = this.uploadService.imgref
+
   }
 }
