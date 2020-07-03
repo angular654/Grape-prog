@@ -1,12 +1,25 @@
-import { TestBed } from '@angular/core/testing';
-
 import { UploadImageService } from './upload-image.service';
-
+import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { of } from 'rxjs';
 describe('UploadImageService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  let service : UploadImageService;
+  let db: AngularFireDatabase;
+  let storage: AngularFireStorage
+  beforeEach(() => {
+    db = {
+      list(n: string) {
+        return {
+          valueChanges: () => of([]),
+          push: (data: any) => { }
+        };
+      }
+    } as any
+  }
+  );
 
   it('should be created', () => {
-    const service: UploadImageService = TestBed.get(UploadImageService);
+    service = new UploadImageService(db,storage)
     expect(service).toBeTruthy();
   });
 });

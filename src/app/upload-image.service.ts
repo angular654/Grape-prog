@@ -30,7 +30,7 @@ export class UploadImageService {
     return uploadTask.percentageChanges();
   }
 
-  private saveFileData(fileUpload: ImageUpload) {
+   private saveFileData(fileUpload: ImageUpload) {
     this.db.list(this.basePath).push(fileUpload);
   }
 }
