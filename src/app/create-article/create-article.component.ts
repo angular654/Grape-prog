@@ -6,6 +6,7 @@ import { ImageUpload } from './Image';
 import { UploadImageService } from '../upload-image.service';
 
 import * as moment from 'moment';
+import { Content } from '@angular/compiler/src/render3/r3_ast';
 @Component({
   selector: 'app-create-article',
   templateUrl: './create-article.component.html',
@@ -22,14 +23,13 @@ export class CreateArticleComponent implements OnInit {
   imagesContent: Observable<any[]>;
   submitted: boolean = false;
   msgdate: any;
-  fileUploads: any[];
   imgUrl: any;
 
   constructor(public db: AngularFireDatabase, private uploadService: UploadImageService) {
   }
   ngOnInit() {
     this.imagesContent = this.db.list('images').valueChanges();  
-    return this.articleContent = this.db.list('artContent').valueChanges();   
+    this.articleContent = this.db.list('artContent').valueChanges();
   }
   createArticle() {
     console.clear();
@@ -47,8 +47,7 @@ export class CreateArticleComponent implements OnInit {
     } else {
       this.msgdate = moment().format('LLL');
       this.upload()
-      this.article.image = 'https://firebasestorage.googleapis.com/v0/b/grapeprogchatapp.appspot.com/o/images%2Fangular.png?alt=media&token=a8be3594-0949-47b2-b2cf-89a070bf452b';
-      this.db.list('artContent').push({ content: this.article.title + '🍇' + this.article.category + '🍇' + this.article.content + '🍇' + this.msgdate + '🍇' + this.article.refs + '🍇' +  this.article.image});
+      this.db.list('artContent').push({ content: this.article.title + '🍇' + this.article.category + '🍇' + this.article.content + '🍇' + this.msgdate + '🍇' + this.article.refs + '🍇' });
       alert('Статья опубликована');
       this.article.title = this.article.category = this.article.content = this.article.refs = this.article.image = undefined;
       console.log('%c You create article🍇', 'font-size: 36px; font-weight: bold');

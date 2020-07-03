@@ -33,26 +33,4 @@ export class UploadImageService {
   private saveFileData(fileUpload: ImageUpload) {
     this.db.list(this.basePath).push(fileUpload);
   }
-
-  getFileUploads(numberItems): AngularFireList<ImageUpload> {
-    return this.db.list(this.basePath, ref =>
-      ref.orderByChild(numberItems));
-  }
-
-  deleteFileUpload(fileUpload: ImageUpload) {
-    this.deleteFileDatabase(fileUpload.key)
-      .then(() => {
-        this.deleteFileStorage(fileUpload.name);
-      })
-      .catch(error => console.log(error));
-  }
-
-  private deleteFileDatabase(key: string) {
-    return this.db.list(this.basePath).remove(key);
-  }
-
-  private deleteFileStorage(name: string) {
-    const storageRef = this.storage.ref(this.basePath);
-    storageRef.child(name).delete();
-  }
 }
