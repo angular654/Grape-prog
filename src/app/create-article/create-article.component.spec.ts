@@ -19,7 +19,7 @@ describe('CreateArticleComponent', () => {
     } as any;
     upS = {
       upload:() => true,
-      item:() => 0
+      item: 0
     } as any
   })
   it('should create', () => {
@@ -53,5 +53,13 @@ describe('CreateArticleComponent', () => {
   it('ngOnInint should used', () => {
     component = new CreateArticleComponent(db,upS);
     expect(component.ngOnInit()).toBeTruthy();
+  });
+  it('selectFile() should used', () => {
+    component = new CreateArticleComponent(db,upS);
+    expect(component.selectFile(event)).toBe(undefined);
+  });
+  it('upload() should return true', () => {
+    component = new CreateArticleComponent(db,upS);
+    expect(component.upload()).toBe(true);
   });
 });
