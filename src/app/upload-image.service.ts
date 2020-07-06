@@ -12,25 +12,25 @@ export class UploadImageService {
   basePath = '/images'
   constructor(private db: AngularFireDatabase, private storage: AngularFireStorage) {
   }
-  pushFileToStorage(image: ImageUpload): Observable<number> {
-    const filePath = `${this.basePath}/${image.file.name}`;
+  pushFileToStorage(fileUpload: ImageUpload): Observable<number> {
+    const filePath = `${this.basePath}/${fileUpload.file.name}`;
     const storageRef = this.storage.ref(filePath);
-    const uploadTask = this.storage.upload(filePath, image.file);
+    const uploadTask = this.storage.upload(filePath, fileUpload.file);
 
     uploadTask.snapshotChanges().pipe(
       finalize(() => {
         storageRef.getDownloadURL().subscribe(downloadURL => {
           console.log('Файл доступен :' , downloadURL);
-          image.url = downloadURL;
-          image.name = image.file.name;
-          this.saveFileData(image);
+          fileUpload.url = downloadURL;
+          fileUpload.name = fileUpload.file.name;
+          this.saveFileData(fileUpload);
         });
       })
     )
     return uploadTask.percentageChanges();
   }
 
-  private saveFileData(image: ImageUpload) {
-    this.db.list(this.basePath).push(image);
+  private saveFileData(fileUpload: ImageUpload) {
+    this.db.list(this.basePath).push(fileUpload);
   }
 }
