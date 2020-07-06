@@ -47,11 +47,11 @@ export class CreateArticleComponent implements OnInit {
       this.upload()
       this.article.image = 'https://firebasestorage.googleapis.com/v0/b/grapeprogchatapp.appspot.com/o/images%2Fgithub-octocat.png?alt=media&token=3bf16861-ce0c-45f2-956e-96098e62e478';
       this.db.list('artContent').push({
-        title: this.article.title, 
-        category: this.article.category, 
+        title: this.article.title,
+        category: this.article.category,
         content: this.article.content,
-        date: this.msgdate, 
-        refs: this.article.refs, 
+        date: this.msgdate,
+        refs: this.article.refs,
         url: this.article.image
       });
       alert('Статья опубликована');

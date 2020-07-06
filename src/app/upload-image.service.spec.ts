@@ -3,7 +3,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { of } from 'rxjs';
 describe('UploadImageService', () => {
-  let service : UploadImageService;
+  let service: UploadImageService;
   let db: AngularFireDatabase;
   let storage: AngularFireStorage
   beforeEach(() => {
@@ -19,7 +19,7 @@ describe('UploadImageService', () => {
   );
 
   it('should be created', () => {
-    service = new UploadImageService(db,storage)
+    service = new UploadImageService(db, storage)
     expect(service).toBeTruthy();
   });
 });
