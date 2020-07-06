@@ -13,8 +13,8 @@
   <h2 id="title"> Grapeprog Chat</h2>
   <div  id="chatfield">
   <div class="col-md-3" *ngFor="let item of items | async"  class="example-box"  >
-    <p  class="badge badge-secondary"  id="chatUsers" >{{item.content.split('$')[0]}}</p>
-    <textarea readonly id="content">{{item.content.split('$')[1]}}</textarea>
+    <p  class="badge badge-secondary"  id="chatUsers" >{{item.user}}</p>
+    <textarea readonly id="content">{{item.content}}</textarea>
   </div>
  
 </div>

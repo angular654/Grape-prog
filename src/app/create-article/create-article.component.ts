@@ -26,7 +26,6 @@ export class CreateArticleComponent implements OnInit {
   constructor(public db: AngularFireDatabase, private uploadService: UploadImageService) {
   }
   ngOnInit() {
-    this.imagesContent = this.db.list('images').valueChanges();
     this.articleContent = this.db.list('artContent').valueChanges();
   }
   createArticle() {

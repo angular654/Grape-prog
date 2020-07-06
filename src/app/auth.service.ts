@@ -8,7 +8,7 @@ export class AuthService {
 
   constructor(public afAuth: AngularFireAuth) { }
   doGoogleLogin() {
-    return new Promise<any>((resolve, reject) => {
+    return new Promise<any>((resolve) => {
       let provider = new firebase.auth.GoogleAuthProvider();
       provider.addScope('profile');
       provider.addScope('email');
