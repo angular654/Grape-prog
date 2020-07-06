@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ImageUpload } from '../app/create-article/Image'
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import { AngularFireDatabase} from '@angular/fire/database';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';

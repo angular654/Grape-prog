@@ -1,56 +1,57 @@
 <div id="content">
-<div *ngIf="submitted;" style="width: 300px;">
-  <form (ngSubmit)="onSubmit()"  action="https://formspree.io/v.ivhanenko04@gmail.com" method="POST" >
-    <div class="form-group">
-      <h3>Создать статью</h3>
-      <label for="title" maxlength="30">Заголовок</label>
-      <input type="text" class="form-control" id="title" required [(ngModel)]="article.title" name="title">
-    </div>
- 
-    <div class="form-group">
-      <label for="category">Категория</label>
-      <input type="text" class="form-control" id="category" required [(ngModel)]="article.category" name="category" maxlength="15"> 
-    </div>
+  <div *ngIf="submitted;" style="width: 300px;">
+    <form (ngSubmit)="onSubmit()" action="https://formspree.io/v.ivhanenko04@gmail.com" method="POST">
+      <div class="form-group">
+        <h3>Создать статью</h3>
+        <label for="title" maxlength="30">Заголовок</label>
+        <input type="text" class="form-control" id="title" required [(ngModel)]="article.title" name="title">
+      </div>
 
-    <div class="form-group">
+      <div class="form-group">
+        <label for="category">Категория</label>
+        <input type="text" class="form-control" id="category" required [(ngModel)]="article.category" name="category"
+          maxlength="15">
+      </div>
+
+      <div class="form-group">
         <label for=" title">Изображение</label>
-        <input type="file" class="file-input" id="image" required [(ngModel)]="article.image" (change)="selectFile($event)" name="image"  accept=".png,.jpg, .svg">
+        <input type="file" class="file-input" id="image" required [(ngModel)]="article.image"
+          (change)="selectFile($event)" name="image" accept=".png,.jpg, .svg">
       </div>
       <div class="form-group">
-        <label for="content" >Содержание</label>
-        <textarea type="text" class="form-control" id="content" required [(ngModel)]="article.content" name="content" ></textarea>
+        <label for="content">Содержание</label>
+        <textarea type="text" class="form-control" id="content" required [(ngModel)]="article.content"
+          name="content"></textarea>
       </div>
       <div class="form-group">
-        <label for="content" >Ссылка</label>
-        <input type="text" class="form-control" id="refs" required [(ngModel)]="article.refs" name="refs" >
+        <label for="content">Ссылка</label>
+        <input type="text" class="form-control" id="refs" required [(ngModel)]="article.refs" name="refs">
       </div>
- 
-    <button type="submit" >Отправить</button>
-    <button  (click)="checkArticle()">Поcмотреть статьи</button>
-  </form>
-</div>
- 
-<div *ngIf="!submitted" id="TheBox">
-  <h4>Опубликованные статьи</h4>
-  <button   (click)="createArticle()">Создать статью</button>
-  <hr>
-  <div  class="container-fluid" *ngFor="let article of articleContent | async">
-    <div  class="container-fluid" *ngFor="let image of imagesContent | async">
-    <div class="card">
-      <h1 class='card-title'>
-        {{article.content.split('🍇')[0]}}
-    </h1>
-    <div id='cat'>{{article.content.split('🍇')[1]}}</div>
-    <img src="{{image.url}}">
-    <div class="card-text">{{article.content.split('🍇')[2]}}</div>
-    <h1 id="ref">Полезные ссылки: </h1>
-    <h3>
-      <a href="{{article.content.split('🍇')[4]}}">{{article.content.split('🍇')[4]}}</a>
-    </h3>
-    <b>Дата публикации : {{article.content.split('🍇')[3]}}</b>
+
+      <button type="submit">Отправить</button>
+      <button (click)="checkArticle()">Поcмотреть статьи</button>
+    </form>
   </div>
-  <br>
-  </div>
-</div>
-</div>
+
+  <div *ngIf="!submitted" id="TheBox">
+    <h4>Опубликованные статьи</h4>
+    <button (click)="createArticle()">Создать статью</button>
+    <hr>
+    <div class="container-fluid" *ngFor="let article of articleContent | async">
+        <div class="card">
+          <h1 class='card-title'>
+            {{article.title}}
+          </h1>
+          <div id='cat'>{{article.category}}</div>
+          <img src="{{article.url}}">
+          <div class="card-text">{{article.content}}</div>
+          <h1 id="ref">Полезные ссылки: </h1>
+          <h3>
+            <a href="{{article.refs}}">{{article.refs}}</a>
+          </h3>
+          <b>Дата публикации : {{article.date}}</b>
+        </div>
+        <br>
+      </div>
+    </div>
 </div>
