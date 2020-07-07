@@ -3,10 +3,16 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { AuthService } from '../auth.service';
 import { of } from 'rxjs';
 describe('ChatComponent', () => {
+  interface Message {
+    user:string,
+    content:string
+    date: Date
+}
   let component: ChatComponent;
   let db: AngularFireDatabase;
   let af: AuthService;
   let username = 'dsdss';
+  let  message : Message
   beforeEach(() => {
     db = {
       list(n: string) {
@@ -36,7 +42,7 @@ describe('ChatComponent', () => {
   });
   it('onSubmit should return true', () => {
     component =  new ChatComponent(db,af);
-    expect(component.onSubmit()).toBe(true);
+    expect(component.onSubmit(message)).toBe(true);
   });
   it('itemValue should defined', () => {
     component =  new ChatComponent(db,af);

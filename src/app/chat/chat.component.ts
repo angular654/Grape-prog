@@ -30,7 +30,7 @@ export class ChatComponent implements OnInit {
     this.db.list('items').push({ 
       user: this.user, 
       content: this.itemValue,
-      date: this.msgdate 
+      date: this.msgdate
     });
     return true;
   }
