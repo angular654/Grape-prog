@@ -20,7 +20,7 @@ export class UploadImageService {
     uploadTask.snapshotChanges().pipe(
       finalize(() => {
         storageRef.getDownloadURL().subscribe(downloadURL => {
-          console.log('Файл доступен :' , downloadURL);
+          console.log('Файл доступен :',downloadURL);
           fileUpload.url = downloadURL;
           fileUpload.name = fileUpload.file.name;
           this.saveFileData(fileUpload);

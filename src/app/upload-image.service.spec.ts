@@ -1,7 +1,7 @@
 import { UploadImageService } from './upload-image.service';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireStorage } from '@angular/fire/storage';
-import {ImageUpload} from '../app/create-article/Image'
+import { ImageUpload } from '../app/create-article/Image'
 import { of } from 'rxjs';
 describe('UploadImageService', () => {
   let service: UploadImageService;
