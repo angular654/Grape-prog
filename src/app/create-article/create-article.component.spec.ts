@@ -52,7 +52,7 @@ describe('CreateArticleComponent', () => {
   });
   it('ngOnInint should used', () => {
     component = new CreateArticleComponent(db,upS);
-    expect(component.ngOnInit()).toBeTruthy();
+    expect(component.ngOnInit()).toBe(undefined);
   });
   it('selectFile() should used', () => {
     component = new CreateArticleComponent(db,upS);

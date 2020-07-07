@@ -18,6 +18,9 @@ describe('UploadImageService', () => {
       }
     } as any
     storage = {
+      ref(str : string){
+        return str
+      }
     } as any
   }
   );
