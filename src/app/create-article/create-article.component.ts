@@ -6,6 +6,7 @@ import { UploadImageService } from '../upload-image.service';
 import { Observable } from 'rxjs';
 
 import * as moment from 'moment';
+import {map} from 'rxjs/operators'
 @Component({
   selector: 'app-create-article',
   templateUrl: './create-article.component.html',
@@ -43,9 +44,9 @@ export class CreateArticleComponent implements OnInit {
       return false;
     } else {
       this.msgdate = moment().format('LLL');
-      this.upload()
-      this.article.image = 'https://firebasestorage.googleapis.com/v0/b/grapeprogchatapp.appspot.com/o/images%2Fgithub-octocat.png?alt=media&token=3bf16861-ce0c-45f2-956e-96098e62e478';
-      this.db.list('artContent').push({
+      //this.upload()
+      //this.article.image = 'https://firebasestorage.googleapis.com/v0/b/grapeprogchatapp.appspot.com/o/images%2Fgithub-octocat.png?alt=media&token=3bf16861-ce0c-45f2-956e-96098e62e478';
+      this.db.object('artContent/article').update({
         title: this.article.title,
         category: this.article.category,
         content: this.article.content,
@@ -53,6 +54,7 @@ export class CreateArticleComponent implements OnInit {
         refs: this.article.refs,
         url: this.article.image
       });
+      this.upload()
       alert('Статья опубликована');
       this.article.title = this.article.category = this.article.content = this.article.refs = this.article.image = undefined;
       console.log('%c You create article🍇', 'font-size: 36px; font-weight: bold');
