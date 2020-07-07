@@ -52,9 +52,7 @@ export class CreateArticleComponent implements OnInit {
       return false;
     } else {
       this.msgdate = moment().format('LLL');
-      this.db.list('artContent').push(articleContent).then((snapshot) => {
-        console.warn(snapshot.key)
-      });
+      this.db.list('artContent').push(articleContent);
       this.upload()
       alert('Статья опубликована');
       this.article.title = this.article.category = this.article.content = this.article.refs = this.article.image = undefined;

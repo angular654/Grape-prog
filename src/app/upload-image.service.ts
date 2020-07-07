@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import { ImageUpload } from '../app/create-article/Image'
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { Observable, forkJoin } from 'rxjs';
+import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
-import { combineLatest } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

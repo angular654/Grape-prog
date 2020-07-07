@@ -19,7 +19,7 @@ describe('CreateArticleComponent', () => {
     } as any;
     upS = {
       upload:() => true,
-      item: 0
+      item:() => Number
     } as any
   })
   it('should create', () => {
@@ -60,6 +60,6 @@ describe('CreateArticleComponent', () => {
   });
   it('upload() should return true', () => {
     component = new CreateArticleComponent(db,upS);
-    expect(component.upload()).toBe(true);
+    expect(component.upload()).toBeTruthy();
   });
 });
