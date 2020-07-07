@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { Observable } from 'rxjs';
+import { Observable, observable } from 'rxjs';
 import { AuthService } from '../auth.service';
 import * as moment from 'moment';
 import { Message } from './message'
@@ -17,21 +17,21 @@ export class ChatComponent implements OnInit {
   user = '';
   auth = false;
   msgdate : any;
-  items: Observable<any[]>;
-
-
+  items: Observable<Message[]>;
+  
   constructor(private db: AngularFireDatabase, private af: AuthService) {
-    this.items = this.db.list('items').valueChanges();
+     this.items = this.db.list('items').valueChanges() as Observable<Message[]>;
   }
   ngOnInit() {
   }
-  onSubmit(message: Message) {
+  onSubmit() {
     this.msgdate = moment().format('LLL');
-    this.db.list('items').push({ 
+    const message: Message = {
       user: this.user, 
       content: this.itemValue,
       date: this.msgdate
-    });
+    };
+    this.db.list('items').push(message);
     return true;
   }
   login() {
