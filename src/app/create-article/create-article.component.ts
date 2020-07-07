@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Article } from '../home/article';
+import { ArticleInterface } from '../home/articleInterface';
 import { ImageUpload } from './Image';
 import { UploadImageService } from '../upload-image.service';
 import { Observable } from 'rxjs';
 
 import * as moment from 'moment';
-import {map, combineLatest} from 'rxjs/operators'
 @Component({
   selector: 'app-create-article',
   templateUrl: './create-article.component.html',
@@ -16,14 +16,13 @@ export class CreateArticleComponent implements OnInit {
 
   selectedFiles: FileList;
   currentFileUpload: ImageUpload;
-
+ 
   article: Article = new Article(); 
   image: ImageUpload;
   articleContent: Observable<any[]>;
   imagesContent: Observable<any[]>;
   submitted: boolean = false;
   msgdate: any;
-  ref: 'artContent'
   constructor(public db: AngularFireDatabase, private uploadService: UploadImageService) {
   }
   ngOnInit() {
@@ -39,22 +38,22 @@ export class CreateArticleComponent implements OnInit {
     return this.submitted = false;
   }
   onSubmit() {
+    this.article.image = 'https://firebasestorage.googleapis.com/v0/b/grapeprogchatapp.appspot.com/o/images%2F%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.jpg?alt=media&token=f356c51e-b928-4025-8c2f-e7367d8a917b';
+    const articleContent: ArticleInterface = {
+         category: this.article.category,
+         refs: this.article.refs,
+         content: this.article.content,
+         image: this.article.image,
+         published: moment().format('LLL'),
+         title: this.article.title
+    }
     if ((this.article.title == undefined || this.article.category == undefined || this.article.content == undefined || this.article.refs == undefined) &&
       !(/(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/gi.test(this.article.refs))) {
       alert('Некорректные данные');
       return false;
     } else {
       this.msgdate = moment().format('LLL');
-      //this.upload()
-     // this.article.image = 'https://firebasestorage.googleapis.com/v0/b/grapeprogchatapp.appspot.com/o/images%2Fgithub-octocat.png?alt=media&token=3bf16861-ce0c-45f2-956e-96098e62e478';
-      this.db.list('artContent').push({
-        title: this.article.title,
-        category: this.article.category,
-        content: this.article.content,
-        date: this.msgdate,
-        refs: this.article.refs,
-        url: this.article.image
-      }).then((snapshot) => {
+      this.db.list('artContent').push(articleContent).then((snapshot) => {
         console.warn(snapshot.key)
       });
       this.upload()

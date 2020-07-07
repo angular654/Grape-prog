@@ -42,7 +42,7 @@ describe('ChatComponent', () => {
   });
   it('onSubmit should return true', () => {
     component =  new ChatComponent(db,af);
-    expect(component.onSubmit(message)).toBe(true);
+    expect(component.onSubmit()).toBe(true);
   });
   it('itemValue should defined', () => {
     component =  new ChatComponent(db,af);

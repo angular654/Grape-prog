@@ -1,10 +1,8 @@
-export class Article {
-    key: string
-    authorName: string
+export interface ArticleInterface{
     category: string
     content: string
     refs: string
     image: string
-    published: Date
+    published: string
     title: string
-  }
+   }
