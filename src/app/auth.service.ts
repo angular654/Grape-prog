@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
+import {User} from '../app/auth/User'
 
 
 @Injectable()
@@ -25,7 +26,7 @@ export class AuthService {
       return false
     })
   }
-  registerUser(value) {
+  registerUser(value : User) {
     return new Promise<any>((resolve, reject) => {
       firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
         .then(res => {

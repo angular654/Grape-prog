@@ -19,13 +19,14 @@ export class CreateArticleComponent implements OnInit {
  
   article: Article = new Article(); 
   image: ImageUpload;
+  articleContent: Observable<any[]>;
   imagesContent: Observable<any[]>;
   submitted: boolean = false;
   msgdate: any;
   constructor(public db: AngularFireDatabase, private uploadService: UploadImageService) {
   }
   ngOnInit() {
-    this.db.list('artContent').valueChanges();
+    this.articleContent = this.db.list('artContent').valueChanges();
   }
   createArticle() {
     console.clear();
