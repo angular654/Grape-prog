@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { ImageUpload } from '../app/create-article/Image'
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { Observable } from 'rxjs';
+import { Observable, forkJoin } from 'rxjs';
 import { finalize } from 'rxjs/operators';
+import { combineLatest } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,6 @@ export class UploadImageService {
           fileUpload.url = downloadURL;
           fileUpload.name = fileUpload.file.name;
           this.saveFileData(fileUpload);
-          this.db.object('artContent/article/url').update(fileUpload)
         });
       })
     ).subscribe();
