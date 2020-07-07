@@ -3,7 +3,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { Article } from '../home/article';
 import { ImageUpload } from './Image';
 import { UploadImageService } from '../upload-image.service';
-import { Observable, of as observableOf, forkJoin, combineLatest } from 'rxjs';
+import { Observable } from 'rxjs';
 
 import * as moment from 'moment';
 @Component({
@@ -16,7 +16,7 @@ export class CreateArticleComponent implements OnInit {
   selectedFiles: FileList;
   currentFileUpload: ImageUpload;
 
-  article: Article = new Article();
+  article: Article = new Article(); 
   image: ImageUpload;
   articleContent: Observable<any[]>;
   imagesContent: Observable<any[]>;

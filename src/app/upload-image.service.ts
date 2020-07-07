@@ -24,9 +24,10 @@ export class UploadImageService {
           fileUpload.url = downloadURL;
           fileUpload.name = fileUpload.file.name;
           this.saveFileData(fileUpload);
+          this.db.list('artContent').update(`url`,fileUpload)
         });
       })
-    )
+    ).subscribe();
     return uploadTask.percentageChanges();
   }
 
