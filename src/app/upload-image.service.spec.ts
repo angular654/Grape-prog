@@ -14,6 +14,9 @@ describe('UploadImageService', () => {
           push: (data: any) => { }
         };
       },
+      getRef(){
+        return String
+      }
     } as any
     image = {
       url : '',

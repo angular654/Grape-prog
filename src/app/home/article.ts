@@ -5,6 +5,6 @@ export class Article {
     content: string
     refs: string
     image: string
-    published: Date
+    published: string
     title: string
   }

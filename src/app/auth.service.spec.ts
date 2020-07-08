@@ -1,5 +1,6 @@
 import { AuthService } from './auth.service';
 import {FirebaseService} from './firebase.service'
+import { getMultipleValuesInSingleSelectionError } from '@angular/cdk/collections';
 describe('AuthService', () => {
   let service: AuthService;
   let fireAuth: FirebaseService;
@@ -21,10 +22,14 @@ describe('AuthService', () => {
             return new Promise<void>(resolve => resolve());
           },
         },
-        signOut(): Promise<void> {
-          return  Promise.resolve(undefined)
-        }
+      },
+      signout(): Promise<void> {
+        return  Promise.resolve(undefined)
+      },
+      getUser(){
+          return String
       }
+
     } as any
     service = new AuthService(fireAuth);
   });

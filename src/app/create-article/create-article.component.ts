@@ -35,13 +35,14 @@ export class CreateArticleComponent implements OnInit {
     return this.submitted = false;
   }
   onSubmit() {
+    this.article.published = moment().format('LLL')
     this.article.image = 'https://firebasestorage.googleapis.com/v0/b/grapeprogchatapp.appspot.com/o/images%2F%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.jpg?alt=media&token=f356c51e-b928-4025-8c2f-e7367d8a917b';
     const articleContent: ArticleInterface = {
          category: this.article.category,
          refs: this.article.refs,
          content: this.article.content,
          image: this.article.image,
-         published: moment().format('LLL'),
+         published: this.article.published,
          title: this.article.title
     }
     if ((this.article.title == undefined || this.article.category == undefined || this.article.content == undefined || this.article.refs == undefined) &&

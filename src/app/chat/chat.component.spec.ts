@@ -20,8 +20,11 @@ describe('ChatComponent', () => {
           valueChanges: () => of([]),
           push: (data: any) => { }
         };
+      },
+      createlist(): Promise<any>{
+        return new Promise<any>(resolve => resolve());
       }
-    } as any;
+    } as any
     af = {
       doGoogleLogin(): Promise<any>{
         return new Promise<any>(resolve => resolve());
