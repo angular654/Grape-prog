@@ -9,27 +9,20 @@ import { User } from '../app/auth/User'
 })
 export class FirebaseService {
 
-  constructor(public db: AngularFireDatabase, public afAuth: AngularFireAuth, private storage: AngularFireStorage) {
-    const firebaseConfig = {
-      apiKey: 'AIzaSyCyoRLATBuyGxIv3Zw3glOQUzUqNaju_zE',
-      authDomain: 'grapeprogchatapp.firebaseapp.com',
-      databaseURL: 'https://grapeprogchatapp.firebaseio.com',
-      storageBucket: 'grapeprogchatapp.appspot.com',
-      messagingSenderId: '943056497421',
-      projectId: "grapeprogchatapp",
-      appId: "1:943056497421:web:153f5785af2d21b0ad5e44",
-      measurementId: "G-XY15XYK63Z"
-    }
-    firebase.initializeApp(firebaseConfig);
+  constructor(public db: AngularFireDatabase, public afAuth: AngularFireAuth, public storage: AngularFireStorage) {
+
   }
-  create(item: string, content) {
-    this.db.list(item).push(content)
+  create(item, content) {
+    return this.db.list(item).push(content)
   }
-  update(item: string, content, updateItem) {
-    this.db.list(item).update(updateItem, content)
+  createlist(item) {
+    return this.db.list(item)
   }
-  delete(item: string, key) {
-    this.db.list(item).remove(key)
+  update(item, content, updateItem) {
+    return item.update(updateItem, content)
+  }
+  delete(item, key) {
+    return item.remove(key)
   }
   regUser(value: User) {
     return new Promise<any>((resolve, reject) => {
@@ -58,12 +51,18 @@ export class FirebaseService {
     })
   }
   getRef(ref) {
-    this.storage.ref(ref)
+    return this.storage.ref(ref)
   }
   uploadFile(path, file: File) {
-    this.storage.upload(path, file)
+    return this.storage.upload(path, file)
   }
   getUser() {
-    this.afAuth.user
+    return this.afAuth.auth.currentUser.displayName
+  }
+  changes(path, file: File) {
+    return this.storage.upload(path, file).snapshotChanges()
+  }
+  signout() {
+    return this.afAuth.auth.signOut();
   }
 }

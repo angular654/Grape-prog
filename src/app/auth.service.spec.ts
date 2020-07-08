@@ -1,8 +1,8 @@
 import { AuthService } from './auth.service';
-import { AngularFireAuth } from '@angular/fire/auth';
+import {FirebaseService} from './firebase.service'
 describe('AuthService', () => {
   let service: AuthService;
-  let fireAuth: AngularFireAuth;
+  let fireAuth: FirebaseService;
   const user = {
     name: "Max",
     login: "maxsxssd",

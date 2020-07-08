@@ -1,17 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, FormGroup, FormControl, Validators} from '@angular/forms';
-import { AngularFireModule } from '@angular/fire';
+import { FormsModule} from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestore'; 
-import { AngularFireStorage } from '@angular/fire/storage';
-import { FirestoreSettingsToken } from '@angular/fire/firestore';
+import { AngularFirestoreModule } from '@angular/fire/firestore'; 
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';  
-import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
+import { RecaptchaModule } from 'ng-recaptcha';
 import { AuthService } from './auth.service';
 import { CheckFormService } from './check-form-service.service';
 import { HttpModule } from '@angular/http';
+import {AngularFireModule} from '@angular/fire'
 
 import { AppRoutingModule } from './app-routing.module';
 import { NgxAutoScrollModule } from "ngx-auto-scroll";
@@ -25,8 +24,8 @@ import { CreateArticleComponent } from './create-article/create-article.componen
 import { AuthComponent } from './auth/auth.component';
 import { EmailSenderComponent } from './email-sender/email-sender.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {DragDropModule} from '@angular/cdk/drag-drop';
-
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { FirebaseService } from './firebase.service';
 
 const routes: Routes = [
   { path: 'chat', component: ChatComponent, pathMatch: 'full' },
@@ -54,14 +53,14 @@ const firebaseConfig = {
     ChatComponent,
     CreateArticleComponent,
     AuthComponent,
-    EmailSenderComponent
+    EmailSenderComponent,
   ],
   imports: [
-
-    AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule, 
     AngularFireAuthModule,
     AngularFireDatabaseModule,
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     FormsModule,
     BrowserModule,
     HttpModule,
@@ -72,20 +71,14 @@ const firebaseConfig = {
     DragDropModule,
     NgxAutoScrollModule,
     PickerModule,
-    EmojiModule
+    EmojiModule,
   ],
   providers: [
+    FirebaseService,
     AuthService,
-    { provide: FirestoreSettingsToken, useValue: {} },
     CheckFormService,
     AuthComponent,
-    AngularFireAuthModule,
-    AngularFireStorage,AngularFireDatabaseModule,{
-    provide: RECAPTCHA_SETTINGS,
-    useValue: {
-      siteKey: '6LfKSewUAAAAAHMBK4RekHHohgt0OPZycXxHJ_i9',
-    } as RecaptchaSettings,
-  }],
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,5 @@
 import { ChatComponent } from './chat.component';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { FirebaseService } from '../firebase.service';
 import { AuthService } from '../auth.service';
 import { of } from 'rxjs';
 describe('ChatComponent', () => {
@@ -9,7 +9,7 @@ describe('ChatComponent', () => {
     date: Date
 }
   let component: ChatComponent;
-  let db: AngularFireDatabase;
+  let db: FirebaseService;
   let af: AuthService;
   let username = 'dsdss';
   let  message : Message

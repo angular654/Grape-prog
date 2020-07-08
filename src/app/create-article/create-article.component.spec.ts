@@ -1,11 +1,11 @@
 import { CreateArticleComponent } from './create-article.component';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { FirebaseService } from '../firebase.service';
 import { of } from 'rxjs';
 import { UploadImageService } from '../upload-image.service';
 
 describe('CreateArticleComponent', () => {
   let component: CreateArticleComponent;
-  let db: AngularFireDatabase;
+  let db: FirebaseService;
   let upS: UploadImageService; 
   beforeEach(() => {
     db = {

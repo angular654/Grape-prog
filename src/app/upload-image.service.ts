@@ -1,23 +1,22 @@
 import { Injectable } from '@angular/core';
 import { ImageUpload } from '../app/create-article/Image'
-import { AngularFireDatabase } from '@angular/fire/database';
-import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
+import { FirebaseService } from './firebase.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UploadImageService {
   basePath = '/images'
-  constructor(private db: AngularFireDatabase, private storage: AngularFireStorage) {
+  constructor(private firedb: FirebaseService) {
   }
   pushFileToStorage(fileUpload: ImageUpload): Observable<number> {
     const filePath = `${this.basePath}/${fileUpload.file.name}`;
-    const storageRef = this.storage.ref(filePath);
-    const uploadTask = this.storage.upload(filePath, fileUpload.file);
+    const storageRef = this.firedb.getRef(filePath);
+    const uploadTask = this.firedb.uploadFile(filePath, fileUpload.file);
 
-    uploadTask.snapshotChanges().pipe(
+    this.firedb.changes(filePath, fileUpload.file).pipe(
       finalize(() => {
         storageRef.getDownloadURL().subscribe(downloadURL => {
           console.log('Файл доступен :',downloadURL);
@@ -31,6 +30,6 @@ export class UploadImageService {
   }
 
   private saveFileData(fileUpload: ImageUpload) {
-    this.db.list(this.basePath).push(fileUpload);
+    this.firedb.create(this.basePath,fileUpload);
   }
 }

@@ -1,13 +1,11 @@
 import { UploadImageService } from './upload-image.service';
-import { AngularFireDatabase } from '@angular/fire/database';
-import { AngularFireStorage } from '@angular/fire/storage';
+import { FirebaseService } from './firebase.service'
 import { ImageUpload } from '../app/create-article/Image'
 import { of, Observable } from 'rxjs';
 
 describe('UploadImageService', () => {
   let service: UploadImageService;
-  let db: AngularFireDatabase;
-  let storage: AngularFireStorage;
+  let db: FirebaseService;
   let image : ImageUpload;
   beforeEach(() => {
     db = {
@@ -17,16 +15,6 @@ describe('UploadImageService', () => {
           push: (data: any) => { }
         };
       },
-    } as any
-    storage = {
-      ref(str: string) {
-        return str
-      },
-      upload(): void {
-      },
-      snapshotChanges(): Observable<any> {
-        return new Observable
-      }
     } as any
     image = {
       url: '',
@@ -39,15 +27,15 @@ describe('UploadImageService', () => {
   );
 
   it('should be created', () => {
-    service = new UploadImageService(db, storage)
+    service = new UploadImageService(db)
     expect(service).toBeTruthy();
   });
   it('should be created', () => {
-    service = new UploadImageService(db, storage)
+    service = new UploadImageService(db)
     expect(service.basePath).toEqual('/images');
   });
   it('pushFileToStorage() should used', () => {
-    service = new UploadImageService(db, storage)
+    service = new UploadImageService(db)
     expect(service.pushFileToStorage(image)).toBeTruthy()
   });
 });
