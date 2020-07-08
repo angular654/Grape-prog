@@ -2,7 +2,8 @@ import { UploadImageService } from './upload-image.service';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { ImageUpload } from '../app/create-article/Image'
-import { of } from 'rxjs';
+import { of, Observable } from 'rxjs';
+import { isNgTemplate } from '@angular/compiler';
 describe('UploadImageService', () => {
   let service: UploadImageService;
   let db: AngularFireDatabase;
@@ -15,12 +16,25 @@ describe('UploadImageService', () => {
           valueChanges: () => of([]),
           push: (data: any) => { }
         };
-      }
+      },
+      
     } as any
     storage = {
       ref(str : string){
         return str
+      },
+      upload() : void{
+      },
+      snapshotChanges(){
+        return new Observable
       }
+    } as any
+    image = {
+      url : '',
+      name: 'image',
+      file : new File(["foo"], "foo.txt", {
+        type: "text/plain",
+      })
     } as any
   }
   );
@@ -33,7 +47,7 @@ describe('UploadImageService', () => {
     service = new UploadImageService(db, storage)
     expect(service.basePath).toEqual('/images');
   });
-  it('pushFileToStorage(image) should used', () => {
+  it('pushFileToStorage() should used', () => {
     service = new UploadImageService(db, storage)
     expect(service.pushFileToStorage(image)).toBeTruthy()
   });

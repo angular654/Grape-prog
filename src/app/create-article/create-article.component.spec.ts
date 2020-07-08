@@ -19,7 +19,9 @@ describe('CreateArticleComponent', () => {
     } as any;
     upS = {
       upload:() => true,
-      item:() => Number
+      item(file): File{
+        return file
+      },
     } as any
   })
   it('should create', () => {
