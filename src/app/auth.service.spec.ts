@@ -22,30 +22,27 @@ describe('AuthService', () => {
           },
         },
         signOut(): Promise<void> {
-          return new Promise<void>(resolve => resolve());
+          return  Promise.resolve(undefined)
         }
-      },
+      }
     } as any
+    service = new AuthService(fireAuth);
   });
   it('should be created', () => {
-    service = new AuthService(fireAuth);
     expect(service).toBeTruthy();
   });
   it(' doGoogleLogin should used', () => {
-    service = new AuthService(fireAuth);
+    
     expect(service.doGoogleLogin()).toBeTruthy();
   });
   it(' getUser() should return string', () => {
-    service = new AuthService(fireAuth);
     let str: string
     expect(service.getUser()).toBe(str);
   });
   it('registerUser() should used', () => {
-    service = new AuthService(fireAuth);
     expect(service.registerUser(user)).toBeTruthy();
   });
   it('signOut() should used', () => {
-    service = new AuthService(fireAuth);
     expect(service.signOut()).toBeTruthy();
   });
 }); 

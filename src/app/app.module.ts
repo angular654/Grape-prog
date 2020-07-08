@@ -74,7 +74,13 @@ const firebaseConfig = {
     PickerModule,
     EmojiModule
   ],
-  providers: [AuthService,{ provide: FirestoreSettingsToken, useValue: {} },CheckFormService,AuthComponent,AngularFireAuthModule, AngularFireStorage,AngularFireDatabaseModule,{
+  providers: [
+    AuthService,
+    { provide: FirestoreSettingsToken, useValue: {} },
+    CheckFormService,
+    AuthComponent,
+    AngularFireAuthModule,
+    AngularFireStorage,AngularFireDatabaseModule,{
     provide: RECAPTCHA_SETTINGS,
     useValue: {
       siteKey: '6LfKSewUAAAAAHMBK4RekHHohgt0OPZycXxHJ_i9',

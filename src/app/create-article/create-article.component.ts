@@ -29,11 +29,9 @@ export class CreateArticleComponent implements OnInit {
     this.articleContent = this.db.list('artContent').valueChanges();
   }
   createArticle() {
-    console.clear();
     return this.submitted = true;
   }
   checkArticle() {
-    console.clear();
     return this.submitted = false;
   }
   onSubmit() {

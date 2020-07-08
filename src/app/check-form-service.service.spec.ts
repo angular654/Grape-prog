@@ -16,7 +16,7 @@ describe('CheckFormServiceService', () => {
       checkLogin: () => true,
       loginLength: () => true,
       checkEmail: () => true,
-      emailValid: () => true
+      emailValid: () => true,
     } as any;
   });
 

@@ -1,7 +1,6 @@
 import { CreateArticleComponent } from './create-article.component';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { of } from 'rxjs';
-import * as moment from 'moment';
 import { UploadImageService } from '../upload-image.service';
 
 describe('CreateArticleComponent', () => {
@@ -19,7 +18,9 @@ describe('CreateArticleComponent', () => {
     } as any;
     upS = {
       upload:() => true,
-      item:() => Number
+      item(file): File{
+        return file
+      },
     } as any
   })
   it('should create', () => {
