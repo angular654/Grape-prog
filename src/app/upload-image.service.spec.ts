@@ -2,7 +2,6 @@ import { UploadImageService } from './upload-image.service';
 import { FirebaseService } from './firebase.service'
 import { ImageUpload } from '../app/create-article/Image'
 import { of, Observable } from 'rxjs';
-
 describe('UploadImageService', () => {
   let service: UploadImageService;
   let db: FirebaseService;
@@ -17,11 +16,11 @@ describe('UploadImageService', () => {
       },
     } as any
     image = {
-      url: '',
+      url : '',
       name: 'image',
-      file: new File(["foo"], "foo.txt", {
+      file : new File(["foo"], "foo.txt", {
         type: "text/plain",
-      }),
+      })
     } as any
   }
   );
