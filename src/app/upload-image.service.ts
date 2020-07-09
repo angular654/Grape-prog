@@ -25,7 +25,7 @@ export class UploadImageService {
           this.saveFileData(fileUpload);
         });
       })
-    )
+    ).subscribe(err => console.log(err))
     return uploadTask.percentageChanges();
   }
 
