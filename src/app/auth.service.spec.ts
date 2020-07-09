@@ -3,7 +3,7 @@ import {FirebaseService} from './firebase.service'
 import { getMultipleValuesInSingleSelectionError } from '@angular/cdk/collections';
 describe('AuthService', () => {
   let service: AuthService;
-  let fireAuth: FirebaseService;
+  let fs: FirebaseService;
   const user = {
     name: "Max",
     login: "maxsxssd",
@@ -11,7 +11,7 @@ describe('AuthService', () => {
     password: "sdsavg378dyq8d7saG"
   };
   beforeEach(() => {
-    fireAuth = {
+    fs = {
       auth: {
         createUserWithEmailAndPassword(): Promise<void> {
           return new Promise<void>(resolve => resolve());
@@ -28,10 +28,13 @@ describe('AuthService', () => {
       },
       getUser(){
           return String
+      },
+      googleLogin(): Promise<any> {
+        return   Promise.resolve(true)
       }
 
     } as any
-    service = new AuthService(fireAuth);
+    service = new AuthService(fs);
   });
   it('should be created', () => {
     expect(service).toBeTruthy();

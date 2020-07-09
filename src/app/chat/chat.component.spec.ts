@@ -2,6 +2,7 @@ import { ChatComponent } from './chat.component';
 import { FirebaseService } from '../firebase.service';
 import { AuthService } from '../auth.service';
 import { of } from 'rxjs';
+import { listChanges } from '@angular/fire/database';
 describe('ChatComponent', () => {
   interface Message {
     user:string,
@@ -9,20 +10,22 @@ describe('ChatComponent', () => {
     date: Date
 }
   let component: ChatComponent;
-  let db: FirebaseService;
+  let fs: FirebaseService;
   let af: AuthService;
   let username = 'dsdss';
   let  message : Message
   beforeEach(() => {
-    db = {
-      list(n: string) {
+    fs = {
+      create(n: string) {
         return {
           valueChanges: () => of([]),
           push: (data: any) => { }
         };
       },
-      createlist(): Promise<any>{
-        return new Promise<any>(resolve => resolve());
+      createlist(){
+        return {
+          valueChanges: () => of([])
+        };
       }
     } as any
     af = {
@@ -33,30 +36,25 @@ describe('ChatComponent', () => {
         return username 
       }
     } as any
+    component =  new ChatComponent(fs,af);
   });
 
   it('should create', () => {
-    component =  new ChatComponent(db,af);
     expect(component).toBeTruthy();
   });
   it('login should return false', () => {
-    component =  new ChatComponent(db,af);
     expect(component.login()).toBe(undefined);
   });
   it('onSubmit should return true', () => {
-    component =  new ChatComponent(db,af);
     expect(component.onSubmit()).toBe(true);
   });
   it('itemValue should defined', () => {
-    component =  new ChatComponent(db,af);
     expect(component.itemValue).toBe('');
   });
   it('should create ngOnInit', () => {
-    component =  new ChatComponent(db,af);
     expect(component.ngOnInit()).toBe(undefined);
   });
   it('component.auth should be true', () => {
-    component =  new ChatComponent(db,af);
     component.auth = true;
     expect(component.auth).toBe(true);
   });

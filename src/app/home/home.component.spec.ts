@@ -6,12 +6,11 @@ describe('HomeComponent', () => {
   let component: HomeComponent;
   let ac: AuthComponent;
   let af: AuthService;
+  component = new HomeComponent(af, ac);
   it('should create', () => {
-    component = new HomeComponent(af, ac);
     expect(component).toBeTruthy();
   });
   it('should create', () => {
-    component = new HomeComponent(af, ac);
     expect(component.ngOnInit()).toBe(undefined);
   });
 });

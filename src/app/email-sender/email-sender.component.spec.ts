@@ -14,23 +14,20 @@ describe('EmailSenderComponent', () => {
           return true;
       }
     } as any
+    component  = new EmailSenderComponent(validator);
   });
 
   it('should create', () => {
-    component  = new EmailSenderComponent(validator);
     expect(component).toBeTruthy();
   });
   it('Check() should return false', () => {
-    component  = new EmailSenderComponent(validator);
     expect(component.Check()).toBe(false);
   });
   it('Check() should return true', () => {
-    component  = new EmailSenderComponent(validator);
     component.email = "r.dfssdg@gmail.com";
     expect(component.Check()).toBe(undefined);
   });
   it('should create ngOnInit()', () => {
-    component  = new EmailSenderComponent(validator);
     expect(component.ngOnInit()).toBe(undefined);
   });
 });

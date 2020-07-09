@@ -35,10 +35,10 @@ describe('AuthComponent', () => {
     component = {
       userRegisterClick: () => false
     } as any
+    component = new AuthComponent(auths, check, router);
   });
 
   it('should create', () => {
-    component = new AuthComponent(auths, check, router);
     expect(component).toBeTruthy();
   });
   it('userRegisterClick() should return false', () => {
@@ -50,8 +50,6 @@ describe('AuthComponent', () => {
     spyOn(check, 'loginLength').and.returnValue(false);
     spyOn(check, 'checkEmail').and.returnValue(false);
     spyOn(check, 'emailValid').and.returnValue(false);
-
-    component = new AuthComponent(auths, check, router);
     expect(component.userRegisterClick()).toBe(false);
   });
   it('userRegisterClick() should return false', () => {
@@ -63,8 +61,6 @@ describe('AuthComponent', () => {
     spyOn(check, 'loginLength').and.returnValue(false);
     spyOn(check, 'checkEmail').and.returnValue(false);
     spyOn(check, 'emailValid').and.returnValue(false);
-
-    component = new AuthComponent(auths, check, router);
     component.name = 'dsf';
     component.login = '';
     component.email = '';
@@ -80,8 +76,6 @@ describe('AuthComponent', () => {
     spyOn(check, 'loginLength').and.returnValue(false);
     spyOn(check, 'checkEmail').and.returnValue(false);
     spyOn(check, 'emailValid').and.returnValue(false);
-
-    component = new AuthComponent(auths, check, router);
     component.name = 'dsf';
     component.login = 'sss';
     component.email = '';
@@ -97,8 +91,6 @@ describe('AuthComponent', () => {
     spyOn(check, 'loginLength').and.returnValue(false);
     spyOn(check, 'checkEmail').and.returnValue(false);
     spyOn(check, 'emailValid').and.returnValue(false);
-
-    component = new AuthComponent(auths, check, router);
     component.name = 'dsf';
     component.login = 'sss';
     component.email = 'iubwfl';
@@ -114,8 +106,6 @@ describe('AuthComponent', () => {
     spyOn(check, 'loginLength').and.returnValue(false);
     spyOn(check, 'checkEmail').and.returnValue(false);
     spyOn(check, 'emailValid').and.returnValue(true);
-
-    component = new AuthComponent(auths, check, router);
     component.name = 'dsf';
     component.login = 'ss';
     component.email = 'd.fdfdff@gmail.com';
@@ -131,8 +121,6 @@ describe('AuthComponent', () => {
     spyOn(check, 'loginLength').and.returnValue(false);
     spyOn(check, 'checkEmail').and.returnValue(true);
     spyOn(check, 'emailValid').and.returnValue(true);
-
-    component = new AuthComponent(auths, check, router);
     component.name = 'dsf';
     component.login = 'ss';
     component.email = 'd.fdfdff@gmail.com';
@@ -148,8 +136,6 @@ describe('AuthComponent', () => {
     spyOn(check, 'loginLength').and.returnValue(true);
     spyOn(check, 'checkEmail').and.returnValue(false);
     spyOn(check, 'emailValid').and.returnValue(false);
-
-    component = new AuthComponent(auths, check, router);
     component.name = 'dsf';
     component.login = undefined;
     component.email = 'd.fdfdff@gmail.com';
@@ -165,8 +151,6 @@ describe('AuthComponent', () => {
     spyOn(check, 'loginLength').and.returnValue(false);
     spyOn(check, 'checkEmail').and.returnValue(false);
     spyOn(check, 'emailValid').and.returnValue(false);
-
-    component = new AuthComponent(auths, check, router);
     component.name = 'dsf';
     component.login = undefined;
     component.email = undefined;
@@ -182,8 +166,6 @@ describe('AuthComponent', () => {
     spyOn(check, 'loginLength').and.returnValue(false);
     spyOn(check, 'checkEmail').and.returnValue(true);
     spyOn(check, 'emailValid').and.returnValue(true);
-
-    component = new AuthComponent(auths, check, router);
     component.name = undefined;
     component.login = undefined;
     component.email = 'd.fdfdff@gmail.com';
@@ -199,8 +181,6 @@ describe('AuthComponent', () => {
     spyOn(check, 'loginLength').and.returnValue(true);
     spyOn(check, 'checkEmail').and.returnValue(false);
     spyOn(check, 'emailValid').and.returnValue(false);
-
-    component = new AuthComponent(auths, check, router);
     component.name = "dfsdf";
     component.login = "dfsdfsdss";
     component.email = 'dmail.com';
@@ -217,7 +197,6 @@ describe('AuthComponent', () => {
     spyOn(check, 'checkEmail').and.returnValue(false);
     spyOn(check, 'emailValid').and.returnValue(false);
 
-    component = new AuthComponent(auths, check, router);
     component.name = undefined;
     component.login = "dfsdfsdss";
     component.email = 'dmail.com';
@@ -233,7 +212,6 @@ describe('AuthComponent', () => {
     spyOn(check, 'loginLength').and.returnValue(true);
     spyOn(check, 'checkEmail').and.returnValue(false);
     spyOn(check, 'emailValid').and.returnValue(false);
-    component = new AuthComponent(auths, check, router);
     component.name = undefined;
     component.login = "dfsdfsdss";
     component.email = 's.dsdssds@gmail.com';
@@ -249,9 +227,6 @@ describe('AuthComponent', () => {
     spyOn(check, 'loginLength').and.returnValue(true);
     spyOn(check, 'checkEmail').and.returnValue(true);
     spyOn(check, 'emailValid').and.returnValue(true);
-    spyOn(component, 'userRegisterClick').and.returnValue(true);
-    
-    component = new AuthComponent(auths, check, router);
     component.name = 'dsfsasdfssd';
     component.login = 'ssdssssdsds';
     component.email = 'd.fdfd@gmail.com';
@@ -260,11 +235,9 @@ describe('AuthComponent', () => {
     expect(component.userRegisterClick()).toBe(true);
   });
   it('should create ngOnInit()', () => {
-    component = new AuthComponent(auths, check, router);
     expect(component.ngOnInit()).toBe(undefined);
   });
   it('GoogleCheckIn() to be true', () => {
-    component = new AuthComponent(auths, check, router);
     expect(component.GoogleCheckIn()).toBe(true);
   });
   it('userRegisterClick() should return false', () => {
@@ -277,8 +250,6 @@ describe('AuthComponent', () => {
     spyOn(check, 'checkEmail').and.returnValue(true);
     spyOn(check, 'emailValid').and.returnValue(false);
     spyOn(component, 'userRegisterClick').and.returnValue(false);
-    
-    component = new AuthComponent(auths, check, router);
     component.name = 'ds';
     component.login = 's';
     component.email = 'd.fdfdgmail.com';
