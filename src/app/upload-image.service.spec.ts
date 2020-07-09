@@ -14,8 +14,12 @@ describe('UploadImageService', () => {
           push: (data: any) => { }
         };
       },
-      getRef(str:string) {
-        return str
+      getRef(str) {
+        return {
+          getDownloadURL(): Observable<any> {
+            return new Observable(str)
+        }
+        }
       },
       uploadFile(path, file: File) {
         return path + file
@@ -23,9 +27,6 @@ describe('UploadImageService', () => {
       changes(file) {
         return new Observable(file)
       },
-      getDownloadURL(): Observable<any> {
-          return new Observable
-      }
     } as any
     image = {
       url: '',
