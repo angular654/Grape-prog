@@ -5,7 +5,7 @@ import { of, Observable } from 'rxjs';
 describe('UploadImageService', () => {
   let service: UploadImageService;
   let fs: FirebaseService;
-  let image : ImageUpload;
+  let image: ImageUpload;
   beforeEach(() => {
     fs = {
       list(n: string) {
@@ -14,32 +14,31 @@ describe('UploadImageService', () => {
           push: (data: any) => { }
         };
       },
-      getRef(){
+      getRef() {
         return String
       },
-      uploadFile(path,file:File){
+      uploadFile(path, file: File) {
         return path + file
       },
-      changes(): Observable<any>{
-       return new Observable
-      },
-      uploadTask() {
-        return {
-          percentageChanges(): Observable<number>{
-            return new Observable
-          }
-        }
+      changes(file) {
+        return new Observable(file)
       }
     } as any
     image = {
-      url : '',
+      url: '',
       name: 'image',
-      file : new File(["foo"], "foo.txt", {
+      file: new File(["foo"], "foo.txt", {
         type: "text/plain",
       })
     } as any
-    service = new UploadImageService(fs)
+    service = {
+      pushFileToStorage(image) {
+            return new Observable(image)
+      }
+    } as any
+    service = new UploadImageService(fs);
   }
+
   );
 
   it('should be created', () => {

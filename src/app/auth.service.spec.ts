@@ -26,8 +26,8 @@ describe('AuthService', () => {
       signout(): Promise<void> {
         return  Promise.resolve(undefined)
       },
-      getUser(){
-          return String
+      getUser(): String{
+          return 'username'
       },
       googleLogin(): Promise<any> {
         return   Promise.resolve(true)
@@ -44,7 +44,7 @@ describe('AuthService', () => {
     expect(service.doGoogleLogin()).toBeTruthy();
   });
   it(' getUser() should return string', () => {
-    let str: string
+    let str = 'username'
     expect(service.getUser()).toBe(str);
   });
   it('registerUser() should used', () => {

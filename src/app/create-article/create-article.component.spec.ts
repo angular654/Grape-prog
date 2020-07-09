@@ -25,12 +25,20 @@ describe('CreateArticleComponent', () => {
       }
     } as any;
     upS = {
-      upload:() => true,
-      item(file): File{
-        return file
-      },
+      
     } as any
-    
+    component = { 
+      upload(){
+        return {
+          target(): any{
+            return
+          },
+          item(index){
+            return File[index]
+          }
+        }
+      }
+    } as any
   })
   it('should create', () => {
     component = new CreateArticleComponent(fs,upS);
@@ -58,6 +66,7 @@ describe('CreateArticleComponent', () => {
     component.article.content = "Some content";
     component.article.category = "category";
     component.article.refs = "https://grape-proger.000webhostapp.com/";
+    component.article.image = "image.png"
     expect(component.onSubmit()).toBe(true);
   });
   it('ngOnInint should used', () => {
@@ -67,9 +76,5 @@ describe('CreateArticleComponent', () => {
   it('selectFile() should used', () => {
     component = new CreateArticleComponent(fs,upS);
     expect(component.selectFile(event)).toBe(undefined);
-  });
-  it('upload() should return true', () => {
-    component = new CreateArticleComponent(fs,upS);
-    expect(component.upload()).toBeTruthy();
   });
 });
