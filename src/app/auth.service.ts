@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FirebaseService } from './firebase.service';
 import * as firebase from 'firebase/app';
-import { User } from '../app/auth/User'
+import { User } from './interfaces/User'
 
 
 @Injectable()

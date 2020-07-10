@@ -3,7 +3,7 @@ import { Observable,} from 'rxjs';
 import { FirebaseService } from '../firebase.service'
 import { AuthService } from '../auth.service';
 import * as moment from 'moment';
-import { Message } from './message'
+import { Message } from '../interfaces/message'
 
 
 

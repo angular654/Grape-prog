@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from '../home/article';
-import { ArticleInterface } from '../home/articleInterface';
+import { ArticleInterface } from '../interfaces/articleInterface';
 import { ImageUpload } from './Image';
 import { UploadImageService } from '../upload-image.service';
 import { Observable } from 'rxjs';
