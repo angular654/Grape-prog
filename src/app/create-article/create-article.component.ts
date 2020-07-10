@@ -60,12 +60,13 @@ export class CreateArticleComponent implements OnInit {
     }
   }
   selectFile(event) {
-    this.selectedFiles = event.target.file;
+    this.selectedFiles = event.target.files;
   }
 
   upload() {
+    const file = this.selectedFiles.item(0);
     this.selectedFiles = undefined;
-    this.currentFileUpload = new ImageUpload(this.selectedFiles.item(0));
+    this.currentFileUpload = new ImageUpload(file);
     this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(
       error => {
         console.log(error);
