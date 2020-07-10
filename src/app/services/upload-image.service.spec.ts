@@ -1,6 +1,6 @@
 import { UploadImageService } from './upload-image.service';
 import { FirebaseService } from './firebase.service'
-import { ImageUpload } from '../app/create-article/Image'
+import { ImageUpload } from '../create-article/Image'
 import { of, Observable } from 'rxjs';
 describe('UploadImageService', () => {
   let service: UploadImageService;

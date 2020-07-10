@@ -1,6 +1,6 @@
 import { HomeComponent } from './home.component';
 import { AuthComponent } from '../auth/auth.component';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth.service';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;

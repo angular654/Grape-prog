@@ -1,5 +1,5 @@
 import { EmailSenderComponent } from './email-sender.component';
-import { CheckFormService } from '../check-form-service.service';
+import { CheckFormService } from '../services/check-form-service.service';
 
 describe('EmailSenderComponent', () => {
   let component: EmailSenderComponent;

@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Article } from '../home/article';
 import { ArticleInterface } from '../interfaces/articleInterface';
 import { ImageUpload } from './Image';
-import { UploadImageService } from '../upload-image.service';
+import { UploadImageService } from '../services/upload-image.service';
 import { Observable } from 'rxjs';
-import { FirebaseService } from '../firebase.service';
+import { FirebaseService } from '../services/firebase.service';
 
 import * as moment from 'moment';
 @Component({

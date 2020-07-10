@@ -7,8 +7,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';  
 import { RecaptchaModule } from 'ng-recaptcha';
-import { AuthService } from './auth.service';
-import { CheckFormService } from './check-form-service.service';
+import { AuthService } from './services/auth.service';
+import { CheckFormService } from './services/check-form-service.service';
 import { HttpModule } from '@angular/http';
 import {AngularFireModule} from '@angular/fire'
 
@@ -25,7 +25,7 @@ import { AuthComponent } from './auth/auth.component';
 import { EmailSenderComponent } from './email-sender/email-sender.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { FirebaseService } from './firebase.service';
+import { FirebaseService } from './services/firebase.service';
 
 const routes: Routes = [
   { path: 'chat', component: ChatComponent, pathMatch: 'full' },

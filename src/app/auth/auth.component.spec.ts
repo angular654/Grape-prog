@@ -1,6 +1,6 @@
-import { AuthService } from "../auth.service";
+import { AuthService } from "../services/auth.service";
 import { AuthComponent } from './auth.component';
-import { CheckFormService } from '../check-form-service.service';
+import { CheckFormService } from '../services/check-form-service.service';
 import { Router } from '@angular/router';
 
 describe('AuthComponent', () => {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable,} from 'rxjs';
-import { FirebaseService } from '../firebase.service'
-import { AuthService } from '../auth.service';
+import { FirebaseService } from '../services/firebase.service'
+import { AuthService } from '../services/auth.service';
 import * as moment from 'moment';
 import { Message } from '../interfaces/message'
 

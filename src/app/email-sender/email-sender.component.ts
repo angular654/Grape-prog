@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CheckFormService } from '../check-form-service.service';
+import { CheckFormService } from '../services/check-form-service.service';
 @Component({
   selector: 'app-email-sender',
   templateUrl: './email-sender.component.html',

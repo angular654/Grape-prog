@@ -1,6 +1,6 @@
 import { ChatComponent } from './chat.component';
-import { FirebaseService } from '../firebase.service';
-import { AuthService } from '../auth.service';
+import { FirebaseService } from '../services/firebase.service';
+import { AuthService } from '../services/auth.service';
 import { of } from 'rxjs';
 import { listChanges } from '@angular/fire/database';
 describe('ChatComponent', () => {

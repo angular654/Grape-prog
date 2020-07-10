@@ -1,7 +1,7 @@
 import { CreateArticleComponent } from './create-article.component';
-import { FirebaseService } from '../firebase.service';
+import { FirebaseService } from '../services/firebase.service';
 import { of } from 'rxjs';
-import { UploadImageService } from '../upload-image.service';
+import { UploadImageService } from '../services/upload-image.service';
 
 describe('CreateArticleComponent', () => {
   let component: CreateArticleComponent;
