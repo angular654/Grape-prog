@@ -18,7 +18,7 @@ describe('UploadImageService', () => {
         return {
           getDownloadURL(): Observable<any> {
             return new Observable(str)
-        }
+          }
         }
       },
       uploadFile(path, file: File) {
@@ -27,7 +27,7 @@ describe('UploadImageService', () => {
       changes(file) {
         return new Observable(file)
       }
-      
+
     } as any
     image = {
       url: '',
@@ -38,7 +38,10 @@ describe('UploadImageService', () => {
     } as any
     service = {
       pushFileToStorage(image) {
-            return image.percentageChanges();
+        return image.percentageChanges();
+      },
+      percentageChanges(): Observable<number> {
+        return new Observable
       }
     } as any
     service = new UploadImageService(fs);
