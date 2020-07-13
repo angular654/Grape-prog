@@ -67,10 +67,6 @@ export class CreateArticleComponent implements OnInit {
     const file = this.selectedFiles.item(0);
     this.selectedFiles = undefined;
     this.currentFileUpload = new ImageUpload(file);
-    this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(
-      error => {
-        console.log(error);
-      }
-    );
+    this.uploadService.pushFileToStorage(this.currentFileUpload)
   }
 }

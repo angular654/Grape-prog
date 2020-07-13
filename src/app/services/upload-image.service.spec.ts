@@ -38,10 +38,7 @@ describe('UploadImageService', () => {
     } as any
     service = {
       pushFileToStorage(image) {
-        return image.percentageChanges();
-      },
-      percentageChanges(): Observable<number> {
-        return new Observable
+        return new Observable(image)
       }
     } as any
     service = new UploadImageService(fs);

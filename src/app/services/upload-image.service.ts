@@ -11,7 +11,7 @@ export class UploadImageService {
   basePath = '/images'
   constructor(private firedb: FirebaseService) {
   }
-  pushFileToStorage(fileUpload: ImageUpload): Observable<number> {
+  pushFileToStorage(fileUpload: ImageUpload) {
     const filePath = `${this.basePath}/${fileUpload.file.name}`;
     const storageRef = this.firedb.getRef(filePath);
     const uploadTask = this.firedb.uploadFile(filePath, fileUpload.file);
@@ -26,7 +26,7 @@ export class UploadImageService {
         });
       })
     )
-    return uploadTask.percentageChanges();
+    return uploadTask
   }
 
   private saveFileData(fileUpload: ImageUpload) {
