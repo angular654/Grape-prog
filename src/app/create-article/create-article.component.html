@@ -4,28 +4,28 @@
       <div class="form-group">
         <h3>Создать статью</h3>
         <label for="title" maxlength="30">Заголовок</label>
-        <input type="text" class="form-control" id="title" required [(ngModel)]="article.title" name="title">
+        <input type="text" class="form-control" id="title" required [(ngModel)]="title" name="title">
       </div>
 
       <div class="form-group">
         <label for="category">Категория</label>
-        <input type="text" class="form-control" id="category" required [(ngModel)]="article.category" name="category"
+        <input type="text" class="form-control" id="category" required [(ngModel)]="category" name="category"
           maxlength="15">
       </div>
 
       <div class="form-group">
         <label for=" title">Изображение</label>
-        <input type="file" class="file-input" id="image" required [(ngModel)]="article.image"
+        <input type="file" class="file-input" id="image" required [(ngModel)]="images"
           (change)="selectFile($event)" name="image" accept=".png,.jpg, .svg">
       </div>
       <div class="form-group">
         <label for="content">Содержание</label>
-        <textarea type="text" class="form-control" id="content" required [(ngModel)]="article.content"
+        <textarea type="text" class="form-control" id="content" required [(ngModel)]="content"
           name="content"></textarea>
       </div>
       <div class="form-group">
         <label for="content">Ссылка</label>
-        <input type="text" class="form-control" id="refs" required [(ngModel)]="article.refs" name="refs">
+        <input type="text" class="form-control" id="refs" required [(ngModel)]="refs" name="refs">
       </div>
 
       <button type="submit">Отправить</button>
@@ -53,5 +53,4 @@
       </div>
       <br>
     </div>
-  </div>
 </div>

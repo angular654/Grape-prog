@@ -3,7 +3,7 @@ import { Observable,} from 'rxjs';
 import { FirebaseService } from '../services/firebase.service'
 import { AuthService } from '../services/auth.service';
 import * as moment from 'moment';
-import { Message } from '../interfaces/message'
+import { Message } from '../models/message'
 
 
 
@@ -31,7 +31,7 @@ export class ChatComponent implements OnInit {
       content: this.itemValue,
       date: this.msgdate
     };
-    this.fire.create('items',message);//list('items').push(message);
+    this.fire.create('items',message);
     return true;
   }
   login() {

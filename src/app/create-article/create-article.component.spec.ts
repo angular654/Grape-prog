@@ -20,9 +20,6 @@ describe('CreateArticleComponent', () => {
           valueChanges: () => of([])
         };
       },
-      item(file): File{
-        return file[0]
-      }
     } as any;
     upS = {
       
@@ -30,14 +27,12 @@ describe('CreateArticleComponent', () => {
     component = { 
       upload(){
         return {
-          target(): any{
-            return
+          target(){
+            return of([])
           },
-          item(index){
-            return File[index]
-          }
         }
-      }
+      },
+      file: FileList[0]
     } as any
   })
   it('should create', () => {
@@ -65,8 +60,8 @@ describe('CreateArticleComponent', () => {
     component.article.title = "Title";
     component.article.content = "Some content";
     component.article.category = "category";
-    component.article.refs = "https://grape-proger.000webhostapp.com/";
-    component.article.image = "image.png"
+    component.article.refs = "https://grape-proger.com/";
+    component.article.image = "image.png";
     expect(component.onSubmit()).toBe(true);
   });
   it('ngOnInint should used', () => {

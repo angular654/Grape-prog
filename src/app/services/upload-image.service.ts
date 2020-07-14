@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ImageUpload } from '../create-article/Image'
+import { ImageUpload } from '../models/Image'
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { FirebaseService } from './firebase.service';

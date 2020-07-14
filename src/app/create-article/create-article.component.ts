@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Article } from '../home/article';
-import { ArticleInterface } from '../interfaces/articleInterface';
-import { ImageUpload } from './Image';
+import { Article } from '../models/article';
+import { ImageUpload } from '../models/Image';
 import { UploadImageService } from '../services/upload-image.service';
 import { Observable } from 'rxjs';
 import { FirebaseService } from '../services/firebase.service';
@@ -17,8 +16,14 @@ export class CreateArticleComponent implements OnInit {
   selectedFiles: FileList;
   currentFileUpload: ImageUpload;
  
-  article: Article = new Article(); 
+  article: Article; 
   image: ImageUpload;
+  title: string;
+  category: string;
+  content: string;
+  refs: string;
+  images: string;
+  date:string
   articleContent: Observable<any[]>;
   imagesContent: Observable<any[]>;
   submitted: boolean = false;
@@ -35,17 +40,17 @@ export class CreateArticleComponent implements OnInit {
     return this.submitted = false;
   }
   onSubmit() {
-    this.article.published = moment().format('LLL')
-    this.article.image = 'https://firebasestorage.googleapis.com/v0/b/grapeprogchatapp.appspot.com/o/images%2F%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.jpg?alt=media&token=f356c51e-b928-4025-8c2f-e7367d8a917b';
-    const articleContent: ArticleInterface = {
-         category: this.article.category,
-         refs: this.article.refs,
-         content: this.article.content,
-         image: this.article.image,
-         published: this.article.published,
-         title: this.article.title
+    this.date = moment().format('LLL')
+    this.images = 'https://firebasestorage.googleapis.com/v0/b/grapeprogchatapp.appspot.com/o/images%2F%D0%91%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.jpg?alt=media&token=f356c51e-b928-4025-8c2f-e7367d8a917b';
+    const articleContent: Article = {
+         category: this.category,
+         refs: this.refs,
+         content: this.content,
+         image: this.images,
+         date: this.date,
+         title: this.title
     }
-    if ((this.article.title == undefined || this.article.category == undefined || this.article.content == undefined || this.article.refs == undefined) &&
+    if ((this.title == undefined || this.category == undefined || this.content == undefined || this.refs == undefined) &&
       !(/(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/gi.test(this.article.refs))) {
       alert('Некорректные данные');
       return false;
@@ -54,7 +59,7 @@ export class CreateArticleComponent implements OnInit {
       this.fire.create('artContent',articleContent)
       this.upload()
       alert('Статья опубликована');
-      this.article.title = this.article.category = this.article.content = this.article.refs = this.article.image = undefined;
+      this.title = this.category = this.content = this.refs = this.images = undefined;
       console.log('%c You create article🍇', 'font-size: 36px; font-weight: bold');
       return true;
     }
@@ -64,9 +69,10 @@ export class CreateArticleComponent implements OnInit {
   }
 
   upload() {
-    const file = this.selectedFiles.item(0);
+    const file = this.selectedFiles[0];
     this.selectedFiles = undefined;
     this.currentFileUpload = new ImageUpload(file);
     this.uploadService.pushFileToStorage(this.currentFileUpload)
+    return true
   }
 }

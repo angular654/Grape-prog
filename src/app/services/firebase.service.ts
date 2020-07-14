@@ -3,7 +3,7 @@ import * as firebase from 'firebase';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { User } from '../interfaces/User'
+import { User } from '../models/User'
 @Injectable({
   providedIn: 'root'
 })
