@@ -32,7 +32,10 @@ describe('CreateArticleComponent', () => {
           },
         }
       },
-      file: FileList[0]
+      file: FileList[0],
+      onSubmit(){
+        return false
+      }
     } as any
   })
   it('should create', () => {
@@ -52,16 +55,15 @@ describe('CreateArticleComponent', () => {
     expect(component.checkArticle()).toBe(false);
   });
   it('onSubmit() should return false', () => {
-    component = new CreateArticleComponent(fs,upS);
     expect(component.onSubmit()).toBe(false);
   });
   it('onSubmit() should return true', () => {
     component = new CreateArticleComponent(fs,upS);
-    component.article.title = "Title";
-    component.article.content = "Some content";
-    component.article.category = "category";
-    component.article.refs = "https://grape-proger.com/";
-    component.article.image = "image.png";
+    component.title = "Title";
+    component.content = "Some content";
+    component.category = "category";
+    component.refs = "https://grape-proger.com/";
+    component.images = "image.png";
     expect(component.onSubmit()).toBe(true);
   });
   it('ngOnInint should used', () => {
